@@ -15,10 +15,32 @@
   </head>
   <body>
     <div class="page">
-      <header class="header">
+      <header class="header page__section">
         <img class="header__logo" src="/images/logo_icon.svg" alt="spot logo" />
       </header>
-      <main class="content"></main>
+      <main class="content page__section">
+        <!-- use "Page Section" for all sections -->
+        <section class="profile page__section">
+          <img
+            class="profile__avatar"
+            src="./images/avatar.jpg"
+            alt="user avatar"
+          />
+          <div class="profile__column">
+            <h1 class="profile__name">Bessie Coleman</h1>
+            <p class="profile__description">Civil Aviator</p>
+            <button class="profile__edit-button">
+              <img
+                src="./images/edit-profile-pencil_icon.svg"
+                alt="pencil icon"
+              />Edit Profile
+            </button>
+          </div>
+          <button class="profile__add-button">
+            <img src="./images/button_large_icon.svg" alt="Plus icon" />
+          </button>
+        </section>
+      </main>
       <footer class="footer"></footer>
     </div>
   </body>

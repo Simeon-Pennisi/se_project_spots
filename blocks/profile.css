@@ -1,0 +1,64 @@
+.profile {
+  display: flex;
+  margin: 0;
+  padding: 34px 0 20px;
+  border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
+}
+
+.profile__name {
+  margin: 0;
+  padding: 0;
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.profile__avatar {
+  margin-right: 20px;
+  padding: 0;
+  border-radius: 8px;
+}
+
+.profile__column {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.profile__description {
+  margin: 12px 0;
+  padding: 0;
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: rgba(33, 33, 33, 0.7);
+}
+
+.profile__edit-button {
+  margin-top: auto;
+  padding: 0;
+  display: flex;
+  background: none;
+  border: none;
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: rgba(33, 33, 33, 1);
+}
+
+.profile__add-button {
+  margin-left: auto;
+  margin-top: auto;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+/* round corners of image, and set correct fonts */
