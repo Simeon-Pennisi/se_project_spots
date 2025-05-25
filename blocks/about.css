@@ -1,4 +1,4 @@
-.about {
+/* .about {
   position: relative;
   padding-top: 100px;
   padding-left: 80px;
@@ -68,4 +68,19 @@
     opacity: 0;
     transform: scale(1.4);
   }
-}
+} */
+
+/* .block {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: who knows;
+} */
+
+/* .block {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+} */
