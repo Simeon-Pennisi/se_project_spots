@@ -16,7 +16,9 @@ This project is social website where users can upload images they would like to 
 To enable use across mobile, desktop, or other platforms the wesite is made so all the elements are displayed correctly regardless of screen size.
 
 **Github Pages**
-The website can be found on Github pages here...
+The website can be found on Github pages at
+
+[Github page](https://username.github.io/se_project_spots)
 
 **Figma**
 
@@ -42,4 +44,4 @@ The arrangement of elements, inluding cards and the header, is controlled by med
 
 The following video gives a detailed overview of the website
 
-[project video](https://)
+[project video](https://drive.google.com/file/d/1lP8eToZaO3TPBKFydtVYel139KmshdFy/view?usp=sharing)
