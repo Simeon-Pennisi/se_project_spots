@@ -1,18 +1,19 @@
 .profile {
   display: flex;
+  justify-content: center;
   margin: 0;
   padding: 34px 0 20px;
   border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
 }
 
 .profile__name {
+  color: #212121;
   margin: 0;
   padding: 0;
-  font-family: Poppins;
+  font-family: Poppins, Arial, sans-serif;
   font-weight: 500;
   font-size: 32px;
   line-height: 1;
-  letter-spacing: 0%;
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -39,11 +40,10 @@
 .profile__description {
   margin: 12px 0;
   padding: 0;
-  font-family: Poppins;
+  font-family: Poppins, Arial, sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
-  letter-spacing: 0%;
   color: rgba(33, 33, 33, 0.7);
   display: -webkit-box;
   overflow: hidden;
@@ -59,11 +59,10 @@
   display: flex;
   background: none;
   border: none;
-  font-family: Poppins;
+  font-family: Poppins, Arial, sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
-  letter-spacing: 0%;
   color: rgba(33, 33, 33, 1);
   opacity: 0.7;
 }
@@ -74,10 +73,19 @@
 }
 
 .profile__add-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
   margin-left: auto;
   margin-top: auto;
   padding: 0;
-  background-image: url(../images/button_large_icon.svg);
+  color: #fcf5e5;
+  font-family: Poppins, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  background-color: #212121;
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 8px;
@@ -90,6 +98,9 @@
   opacity: 0.8;
   cursor: pointer;
 }
+
+/* .profile__add-button-icon {
+} */
 
 @media screen and (max-width: 627px) {
   .profile {
@@ -119,7 +130,6 @@
 
   .profile__add-button {
     margin: auto;
-    background-image: url(../images/button_large_mobile_icon.svg);
     width: 288px;
   }
 }

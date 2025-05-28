@@ -8,17 +8,20 @@
       content="This is a description of the site's content"
     />
     <meta name="author" content="Simeon Pennisi" />
-    <link rel="stylesheet" href="vendor/normalize.css" />
     <link rel="stylesheet" href="pages/index.css" />
     <link rel="shortcut icon" href="favicon.ico" />
-    <title>This is the title</title>
+    <title>Spots</title>
   </head>
   <body>
     <div class="page">
-      <header class="header page__section">
-        <img class="header__logo" src="/images/logo_icon.svg" alt="spot logo" />
+      <header class="header">
+        <img
+          class="header__logo"
+          src="./images/logo_icon.svg"
+          alt="spot logo"
+        />
       </header>
-      <main class="content page__section">
+      <main class="content">
         <!-- use "Page Section" for all sections -->
         <section class="profile page__section">
           <img
@@ -26,7 +29,7 @@
             src="./images/avatar.jpg"
             alt="user avatar"
           />
-          <div class="profile__column page__section">
+          <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
             <button class="profile__edit-button" type="button">
@@ -36,11 +39,18 @@
               />Edit Profile
             </button>
           </div>
-          <button class="profile__add-button" type="button"></button>
+          <button class="profile__add-button" type="button">
+            <img
+              src="./images/add-button_icon.svg"
+              alt="add button"
+              class="profile__add-button-icon"
+            />
+            New Post
+          </button>
         </section>
       </main>
       <!-- card section -->
-      <section class="cards">
+      <section class="cards page__section">
         <ul class="cards__list">
           <!-- card 1 -->
           <li class="card">
@@ -51,8 +61,8 @@
               class="card__image"
             />
             <div class="card__content">
-              <h2 class="card__title">Val Thorens</h2>
-              <button class="card__like-button" type="button"></button>
+              <h2 class="card__content-title">Val Thorens</h2>
+              <button class="card__content-like-button" type="button"></button>
             </div>
           </li>
           <!-- card 2 -->
@@ -64,8 +74,8 @@
               class="card__image"
             />
             <div class="card__content">
-              <h2 class="card__title">Restaurant terrace</h2>
-              <button class="card__like-button" type="button"></button>
+              <h2 class="card__content-title">Restaurant terrace</h2>
+              <button class="card__content-like-button" type="button"></button>
             </div>
           </li>
           <!-- card 3 -->
@@ -77,8 +87,8 @@
               class="card__image"
             />
             <div class="card__content">
-              <h2 class="card__title">An outdoor cafe</h2>
-              <button class="card__like-button" type="button"></button>
+              <h2 class="card__content-title">An outdoor cafe</h2>
+              <button class="card__content-like-button" type="button"></button>
             </div>
           </li>
           <!-- card 4 -->
@@ -90,10 +100,10 @@
               class="card__image"
             />
             <div class="card__content">
-              <h2 class="card__title">
+              <h2 class="card__content-title">
                 A very long bridge, over the forest...
               </h2>
-              <button class="card__like-button" type="button"></button>
+              <button class="card__content-like-button" type="button"></button>
             </div>
           </li>
           <!-- card 5 -->
@@ -105,8 +115,8 @@
               class="card__image"
             />
             <div class="card__content">
-              <h2 class="card__title">Tunnel with morning light</h2>
-              <button class="card__like-button" type="button"></button>
+              <h2 class="card__content-title">Tunnel with morning light</h2>
+              <button class="card__content-like-button" type="button"></button>
             </div>
           </li>
           <!-- card 6 -->
@@ -118,8 +128,8 @@
               class="card__image"
             />
             <div class="card__content">
-              <h2 class="card__title">Mountain house</h2>
-              <button class="card__like-button" type="button"></button>
+              <h2 class="card__content-title">Mountain house</h2>
+              <button class="card__content-like-button" type="button"></button>
             </div>
           </li>
         </ul>
