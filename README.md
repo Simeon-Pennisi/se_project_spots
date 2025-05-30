@@ -18,7 +18,7 @@ To enable use across mobile, desktop, or other platforms the wesite is made so a
 **Github Pages**
 The website can be found on Github pages at
 
-[Github page](https://username.github.io/se_project_spots)
+[Github page](https://Simeon-Pennisi.github.io/se_project_spots)
 
 **Figma**
 
