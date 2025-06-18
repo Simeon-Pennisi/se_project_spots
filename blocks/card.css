@@ -41,6 +41,7 @@
   background-repeat: no-repeat;
   background-color: transparent;
   opacity: 0.4;
+  transition: opacity 0.8s ease-in-out;
   border: none;
   width: 23px;
   height: 20px;

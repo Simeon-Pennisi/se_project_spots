@@ -1,39 +1,82 @@
 //edit profile modal
-
-console.log("Eat Pray Love");
-
 const editProfileButton = document.querySelector(".profile__edit-button");
 
-const profileEditModal = document.querySelector("#profile-edit-modal");
+const editProfileModal = document.querySelector("#profile-edit-modal");
 
-const editProfileCloseBtn = profileEditModal.querySelector(".modal__close-btn");
+const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 
-editProfileButton.addEventListener("click", function () {
-  profileEditModal.classList.add("modal_is-opened");
-  console.log("edit button clicked");
-});
+const profileNameElement = document.querySelector(".profile__name");
 
-editProfileCloseBtn.addEventListener("click", function () {
-  profileEditModal.classList.remove("modal_is-opened");
-  console.log("close button clicked");
-});
+const profileDescriptionElement = document.querySelector(
+  ".profile__description"
+);
+
+const editProfileNameInput = document.querySelector("#profile-name-input");
+
+const editProfileDescriptionInput = document.querySelector(
+  "#profile-description-input"
+);
+
+function openEditProfileModal() {
+  editProfileModal.classList.add("modal_is-opened");
+  editProfileNameInput.value = profileNameElement.textContent;
+  editProfileDescriptionInput.value = profileDescriptionElement.textContent;
+}
+
+function closeEditProfileModal() {
+  editProfileModal.classList.remove("modal_is-opened");
+}
+
+function submitEditProfileModal(evt) {
+  evt.preventDefault();
+  profileNameElement.textContent = editProfileNameInput.value;
+  profileDescriptionElement.textContent = editProfileDescriptionInput.value;
+  editProfileModal.classList.remove("modal_is-opened");
+}
+
+editProfileButton.addEventListener("click", openEditProfileModal);
+
+editProfileCloseBtn.addEventListener("click", closeEditProfileModal);
+
+editProfileModal.addEventListener("submit", submitEditProfileModal);
 
 //new post modal
-
-console.log("Live Laugh Love");
-
 const newPostButton = document.querySelector(".profile__add-button");
 
-const postNewModal = document.querySelector("#post-new-modal");
+const newPostModal = document.querySelector("#post-new-modal");
 
-const newPostCloseBtn = postNewModal.querySelector(".modal__close-btn");
+const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 
-newPostButton.addEventListener("click", function () {
-  postNewModal.classList.add("modal_is-opened");
-  console.log("new post button clicked");
-});
+const newPostSaveBtn = newPostModal.querySelector(".modal__save-btn");
 
-newPostCloseBtn.addEventListener("click", function () {
-  postNewModal.classList.remove("modal_is-opened");
-  console.log("close button clicked");
-});
+const cardImageElement = document.querySelector(".card__image");
+
+const cardContentTitleElement = document.querySelector(".card__content-title"); //sub-class of card__content
+
+const newPostImageLinkInput = document.querySelector(
+  "#new-post-image-link-input"
+);
+const newPostImageCaptionInput = document.querySelector(
+  "#new-post-caption-input"
+);
+
+function openNewPostModal() {
+  newPostModal.classList.add("modal_is-opened");
+}
+
+function closeNewPostModal() {
+  newPostModal.classList.remove("modal_is-opened");
+}
+
+function submitNewPostModal(evt) {
+  evt.preventDefault();
+  console.log(newPostImageLinkInput.value);
+  console.log(newPostImageCaptionInput.value);
+  newPostModal.classList.remove("modal_is-opened");
+}
+
+newPostButton.addEventListener("click", openNewPostModal);
+
+newPostCloseBtn.addEventListener("click", closeNewPostModal);
+
+newPostModal.addEventListener("submit", submitNewPostModal);
