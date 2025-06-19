@@ -13,12 +13,14 @@
   margin: 0;
   padding-left: 10px;
   padding-right: 10px;
-  transition: visibility 0.8s ease-in-out;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s linear;
 }
 
 .modal_is-opened {
   visibility: visible;
-  transition: visibility 0.8s ease-in-out;
+  opacity: 1;
+  /* transition: opacity 0.1s linear; */
 }
 
 .modal__container {
@@ -64,7 +66,7 @@
   font-family: Poppins;
   font-weight: 500;
   font-size: 16px;
-  line-height: 110.00000000000001%;
+  line-height: 110%;
   color: rgba(33, 33, 33, 0.7);
   margin: 0;
 }
