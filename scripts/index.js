@@ -72,8 +72,7 @@ function submitNewPostModal(evt) {
   evt.preventDefault();
   console.log(newPostImageLinkInput.value);
   console.log(newPostImageCaptionInput.value);
-  newPostImageLinkInput.value = null;
-  newPostImageCaptionInput.value = null;
+  evt.target.reset();
   closeModal(newPostModal);
 }
 
