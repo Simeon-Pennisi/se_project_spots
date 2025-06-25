@@ -1,3 +1,35 @@
+const initialCards = [
+  {
+    name: "Val Thorens",
+    url: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
+  },
+
+  {
+    name: "Restaurant terrace",
+    url: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
+  },
+
+  {
+    name: "Japanese temple reflected in the water",
+    url: "https://unsplash.com/photos/japanese-temple-reflected-in-the-water-n4XeCKwwrk0",
+  },
+
+  {
+    name: "A very long bridge, over the forest and through the trees",
+    url: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
+  },
+
+  {
+    name: "Tunnel with morning light",
+    url: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
+  },
+
+  {
+    name: "Mountain house",
+    url: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
+  },
+];
+
 //edit profile modal
 const editProfileButton = document.querySelector(".profile__edit-button");
 
@@ -90,3 +122,7 @@ function openModal(modal) {
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
 }
+
+initialCards.forEach((element) => {
+  console.log(element.name);
+});
