@@ -34,6 +34,12 @@ const initialCards = [
     name: "Mountain house",
     url: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
+
+  {
+    // card 7 the bonus card
+    name: "a person stacking rocks on top of each other",
+    url: "https://unsplash.com/photos/a-person-stacking-rocks-on-top-of-each-other-RFFzlqBSmRw",
+  },
 ];
 
 //edit profile modal
