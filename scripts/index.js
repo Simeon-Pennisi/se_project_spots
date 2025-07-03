@@ -114,8 +114,24 @@ function closeNewPostModal() {
 
 function submitNewPostModal(evt) {
   evt.preventDefault();
+
   console.log(newPostImageLinkInput.value);
   console.log(newPostImageCaptionInput.value);
+
+  // const newCard = getCardElement({
+  //   link: newPostImageLinkInput.value,
+  //   name: newPostImageCaptionInput.value,
+  // });
+
+  const cardInputs = {
+    link: newPostImageLinkInput.value,
+    name: newPostImageCaptionInput.value,
+  };
+
+  const newCard = getCardElement(cardInputs);
+
+  cardsList.prepend(newCard);
+
   evt.target.reset();
   closeModal(newPostModal);
 }
@@ -135,6 +151,30 @@ function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
 }
 
+// project section 8
+
+const cardTemplate = document.querySelector("#card-template");
+
+const cardsList = document.querySelector(".cards__list");
+
+function getCardElement(data) {
+  // console.log(data);
+  const cardElement = cardTemplate.content
+    .querySelector(".card")
+    .cloneNode(true);
+  const cardTitleEl = cardElement.querySelector(".card__content-title");
+  const cardImageEl = cardElement.querySelector(".card__image");
+
+  cardImageEl.src = data.link;
+  cardTitleEl.alt = data.name;
+  cardTitleEl.textContent = data.name;
+
+  return cardElement;
+}
+
+//function to log array to console
 initialCards.forEach((element) => {
-  console.log(element.name);
+  const cardElem = getCardElement(element);
+
+  cardsList.append(cardElem);
 });
