@@ -169,6 +169,23 @@ function getCardElement(data) {
   cardTitleEl.alt = data.name;
   cardTitleEl.textContent = data.name;
 
+  const cardLikeButton = cardElement.querySelector(
+    ".card__content-like-button"
+  );
+
+  cardLikeButton.addEventListener("click", () => {
+    cardLikeButton.classList.replace(
+      "card__content-like-button",
+      "card__content-like-button_active"
+    );
+  });
+
+  const cardDeleteButton = cardElement.querySelector(".card__delete-button");
+
+  cardDeleteButton.addEventListener("click", () => {
+    cardElement.remove();
+  });
+
   return cardElement;
 }
 
