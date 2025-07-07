@@ -93,6 +93,13 @@
   cursor: pointer;
 }
 
+/* .modal__close-btn-preview:hover {
+  background-image: url(../images/modal-close-btn-preview-icon.svg);
+  background-color: green;
+  opacity: 0.4;
+  cursor: pointer;
+} */
+
 .modal__title {
   margin: 0 0 32px;
   font-family: Poppins;
@@ -101,7 +108,8 @@
   line-height: 100%;
 }
 
-.modal__form {
+.modal__form:hover {
+  cursor: pointer;
 }
 
 .modal__label {

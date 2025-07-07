@@ -192,9 +192,17 @@ function getCardElement(data) {
     cardElement.remove();
   });
 
+  // part 5 click listener
+  // cardImageEl.addEventListener("click", openModalPreview);
+  cardImageEl.addEventListener("click", () => {
+    modalPreviewImage.src = data.link;
+    modalPreviewImage.alt = data.name;
+    modalPreviewTitle.textContent = data.name;
+    openModal(modalPreview);
+  });
+
   return cardElement;
 }
-C;
 
 //function to log array to console
 initialCards.forEach((element) => {
@@ -203,23 +211,37 @@ initialCards.forEach((element) => {
   cardsList.append(cardElem);
 });
 
+//
+//
+//
 // part 5 elements
-const modalPreviewElement = document.querySelector("#preview-modal");
+const modalPreview = document.querySelector("#preview-modal");
 
-const modalPreviewContainerElement = modalPreviewElement.querySelector(
-  ".modal__container-preview"
-);
+// const modalPreviewContainer = modalPreview.querySelector(
+//   ".modal__container-preview"
+// );
 
-const modalPreviewCloseBtnElement = modalPreviewContainerElement.querySelector(
+const modalPreviewCloseBtn = modalPreview.querySelector(
   ".modal__close-btn-preview"
 );
 
-const modalPreviewImageElement = modalPreviewContainerElement.querySelector(
-  ".modal__image-preview"
-);
+const modalPreviewImage = modalPreview.querySelector(".modal__image-preview");
 // use .src and .alt for the "link" and "name"
 
 const modalPreviewTitle = document.querySelector(".modal__preview-title");
 // might need to be child of .modal__preview-content
 
 // const cardImageEl = cardElement.querySelector(".card__image");
+
+// click listener
+modalPreviewCloseBtn.addEventListener("click", closeModalPreview);
+
+// function openModalPreview() {
+//   // cardElem.value = profileNameElement.textContent;
+//   // cardElem.value = profileDescriptionElement.textContent;
+//   openModal(modalPreview);
+// }
+
+function closeModalPreview() {
+  closeModal(modalPreview);
+}
