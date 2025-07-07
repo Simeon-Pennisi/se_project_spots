@@ -1,5 +1,11 @@
 const initialCards = [
   {
+    // example card
+    name: "Golden Gate Bridge",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+  },
+
+  {
     // card 1
     name: "Val Thorens",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
@@ -188,6 +194,7 @@ function getCardElement(data) {
 
   return cardElement;
 }
+C;
 
 //function to log array to console
 initialCards.forEach((element) => {
@@ -195,3 +202,24 @@ initialCards.forEach((element) => {
 
   cardsList.append(cardElem);
 });
+
+// part 5 elements
+const modalPreviewElement = document.querySelector("#preview-modal");
+
+const modalPreviewContainerElement = modalPreviewElement.querySelector(
+  ".modal__container-preview"
+);
+
+const modalPreviewCloseBtnElement = modalPreviewContainerElement.querySelector(
+  ".modal__close-btn-preview"
+);
+
+const modalPreviewImageElement = modalPreviewContainerElement.querySelector(
+  ".modal__image-preview"
+);
+// use .src and .alt for the "link" and "name"
+
+const modalPreviewTitle = document.querySelector(".modal__preview-title");
+// might need to be child of .modal__preview-content
+
+// const cardImageEl = cardElement.querySelector(".card__image");
