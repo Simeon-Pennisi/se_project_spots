@@ -1,7 +1,6 @@
 /* properties of the cards themselves */
 .card {
   max-width: 413px;
-  /* max-height: 445px; */
   position: relative;
 }
 
@@ -35,7 +34,7 @@
 }
 
 .card__content-like-button {
-  /* this is the darker version of the heart icon */
+  /* darker version of heart icon */
   background-image: url(../images/like-heart_hover_icon.svg);
   background-position: center;
   background-repeat: no-repeat;
@@ -53,7 +52,6 @@
 }
 
 .card__content-like-button_active {
-  /* background: rgba(255, 255, 255, 1); */
   background-image: url(../images/like-heart_red_icon.svg.svg);
   background-position: center;
   background-repeat: no-repeat;
