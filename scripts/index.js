@@ -197,7 +197,7 @@ initialCards.forEach((element) => {
 const modalPreview = document.querySelector("#preview-modal");
 
 const modalPreviewCloseBtn = modalPreview.querySelector(
-  ".modal__close-btn-preview"
+  ".modal__close-btn_preview"
 );
 
 const modalPreviewImage = modalPreview.querySelector(".modal__image-preview");
