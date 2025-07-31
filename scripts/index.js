@@ -199,39 +199,39 @@ modalPreviewCloseBtn.addEventListener("click", () => closeModal(modalPreview));
 
 // disable "submit" button if required fields are empty
 
-const formElement = document.querySelector(".modal__form");
+// const formElement = document.querySelector(".modal__form");
 
-const inputList = Array.from(formElement.querySelectorAll(".modal__input"));
+// const inputList = Array.from(formElement.querySelectorAll(".modal__input"));
 
-const hasInvalidInput = (inputList) => {
-  return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
-  });
-};
+// const hasInvalidInput = (inputList) => {
+//   return inputList.some((inputElement) => {
+//     return !inputElement.validity.valid;
+//   });
+// };
 
-const toggleButtonState = (inputList, buttonElement) => {
-  if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add("form__submit_inactive");
-  } else {
-    buttonElement.classList.remove("form__submit_inactive");
-  }
-};
+// const toggleButtonState = (inputList, buttonElement) => {
+//   if (hasInvalidInput(inputList)) {
+//     buttonElement.classList.add("form__submit_inactive");
+//   } else {
+//     buttonElement.classList.remove("form__submit_inactive");
+//   }
+// };
 
-const setEventListeners = (formElement) => {
-  // Find all the form fields and make an array of them
-  const inputList = Array.from(formElement.querySelectorAll(".form__input"));
-  // Find the submit button in the current form
-  const buttonElement = formElement.querySelector(".form__submit");
-  toggleButtonState(inputList, buttonElement);
-  // Call the toggleButtonState() before we start listening to the input event
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener("input", () => {
-      checkInputValidity(formElement, inputElement);
-      // Call the toggleButtonState() and pass an array of fields and the button to it
-    });
-  });
-};
+// const setEventListeners = (formElement) => {
+//   // Find all the form fields and make an array of them
+//   const inputList = Array.from(formElement.querySelectorAll(".form__input"));
+//   // Find the submit button in the current form
+//   const buttonElement = formElement.querySelector(".form__submit");
+//   toggleButtonState(inputList, buttonElement);
+//   // Call the toggleButtonState() before we start listening to the input event
+//   inputList.forEach((inputElement) => {
+//     inputElement.addEventListener("input", () => {
+//       checkInputValidity(formElement, inputElement);
+//       // Call the toggleButtonState() and pass an array of fields and the button to it
+//     });
+//   });
+// };
 
-// profile
+// // profile
 
-// post
+// // post

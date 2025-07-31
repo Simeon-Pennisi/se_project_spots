@@ -79,24 +79,38 @@
           <h3 class="modal__title">Edit Profile</h3>
           <form class="modal__form" name="Edit Profile">
             <!-- "for" attribute of label should match "id" attribute of input -->
-            <label for="profile-name-input" class="modal__label">Name</label>
-            <input
-              id="profile-name-input"
-              type="text"
-              class="modal__input"
-              placeholder="Type your name"
-              required
-            />
+            <label for="profile-name-input" class="modal__label"
+              >Name
+              <input
+                id="profile-name-input"
+                type="text"
+                class="modal__input"
+                placeholder="Type your name"
+                required
+                minlength="2"
+                maxlength="40"
+              />
+              <span
+                id="profile-name-input-error"
+                class="modal__input-error"
+              ></span>
+            </label>
             <label for="profile-description-input" class="modal__label"
-              >Description</label
-            >
-            <input
-              id="profile-description-input"
-              type="text"
-              class="modal__input"
-              placeholder="Describe yourself"
-              required
-            />
+              >Description
+              <input
+                id="profile-description-input"
+                type="text"
+                class="modal__input"
+                placeholder="Describe yourself"
+                required
+                minlength="2"
+                maxlength="200"
+              />
+              <span
+                id="profile-description-input-error"
+                class="modal__input-error"
+              ></span>
+            </label>
             <button class="modal__save-btn" type="submit">Save</button>
           </form>
         </div>
@@ -109,25 +123,35 @@
           <form class="modal__form" name="New Post">
             <!-- "for" attribute of label should match "id" attribute of input -->
             <label for="new-post-image-link-input" class="modal__label"
-              >Image link</label
-            >
-            <input
-              id="new-post-image-link-input"
-              type="url"
-              class="modal__input"
-              placeholder="Paste a link to the picture"
-              required
-            />
+              >Image link
+              <input
+                id="new-post-image-link-input"
+                type="url"
+                class="modal__input"
+                placeholder="Paste a link to the picture"
+                required
+              />
+              <span
+                id="new-post-image-link-input-error"
+                class="modal__input-error"
+              ></span>
+            </label>
             <label for="new-post-caption-input" class="modal__label"
-              >Description</label
-            >
-            <input
-              id="new-post-caption-input"
-              type="text"
-              class="modal__input"
-              placeholder="Type your caption"
-              required
-            />
+              >Description
+              <input
+                id="new-post-caption-input"
+                type="text"
+                class="modal__input"
+                placeholder="Type your caption"
+                required
+                minlength="2"
+                maxlength="30"
+              />
+              <span
+                id="new-post-caption-input-error"
+                class="modal__input-error"
+              ></span>
+            </label>
             <button class="modal__save-btn" type="submit">Save</button>
           </form>
         </div>
@@ -146,6 +170,7 @@
         </div>
       </div>
     </div>
+    <script src="./scripts/validation.js"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
