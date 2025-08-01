@@ -20,20 +20,31 @@ const showInputError = (formElement, inputElement, inputErrorMessage) => {
   errorMsgElement.textContent = inputErrorMessage;
 };
 
+const removeInputError = (formElement, inputElement, inputErrorMessage) => {
+  const errorMsgId = inputElement.id + "-error";
+  const errorMsgElement = document.querySelector("#" + errorMsgId);
+  errorMsgElement.textContent = undefined;
+  errorMsgElement.classList.add("modal__input-correct");
+};
+
 const checkInputValidity = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
     // console.log(inputElement.validationMessage);
+  } else if (inputElement.validity.valid) {
+    removeInputError(formElement, inputElement, inputElement.validationMessage);
   }
 };
 
 const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
+    // console.log(inputElement.validity.valid);
   });
 };
 
 const toggleButtonState = (inputList, buttonElement) => {
+  // use the following line to remove error messages
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add("modal__save-btn_inactive");
   } else {
@@ -70,3 +81,5 @@ const enableValidation = () => {
 // Passing the configuration object to enableValidation when we call it.
 // enableValidation(settings);
 enableValidation();
+
+// delete all below this line
