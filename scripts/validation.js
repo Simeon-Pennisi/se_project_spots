@@ -47,10 +47,12 @@ const toggleButtonState = (inputList, buttonElement) => {
   // use the following line to remove error messages
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add("modal__save-btn_inactive");
-  } else {
+  } else if (!hasInvalidInput(inputList)) {
     buttonElement.classList.remove("modal__save-btn_inactive");
   }
 };
+
+// to check input state upon modal opening
 
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll(".modal__input"));
@@ -72,10 +74,12 @@ const enableValidation = () => {
   formList.forEach((formElement) => {
     // formElement.addEventListener("submit", (evt) => {
     //   console.log(formElement);
-    //   evt.preventDefault();
+    // evt.preventDefault();
     // });
     setEventListeners(formElement);
+    // evt.preventDefault();
   });
+  // evt.preventDefault();
 };
 
 // Passing the configuration object to enableValidation when we call it.
@@ -83,93 +87,4 @@ const enableValidation = () => {
 enableValidation();
 
 // delete all below this line
-
-// if (a - b > 0) {
-//   if (a - b <= 0 + margin) {
-//     return 0;
-//   } else if (a < b) {
-//     return -1;
-//   } else if (a > b) {
-//     return 1;
-//   }
-// } else if (a - b < 0) {
-//   if (a - b >= 0 - margin) {
-//     return 0;
-//   } else if (a < b) {
-//     return -1;
-//   } else if (a > b) {
-//     return 1;
-//   }
-// }
-
-// function closeCompare(a, b, margin) {
-//   if (margin === undefined) {
-//     margin = 0;
-//   }
-
-//   if (a - b > 0) {
-//     if (a - b <= 0 + margin) {
-//       return 0;
-//     } else if (a < b) {
-//       return -1;
-//     } else if (a > b) {
-//       return 1;
-//     }
-//   } else if (a - b < 0) {
-//     if (a - b >= 0 - margin) {
-//       return 0;
-//     } else if (a < b) {
-//       return -1;
-//     } else if (a > b) {
-//       return 1;
-//     }
-//   }
-// }
-
-// function closeCompare(a, b, margin) {
-//   if (a - b > 0) {
-//     if (a - b <= 0 + margin) {
-//       let answer = 0;
-//     } else if (a < b) {
-//       let answer = -1;
-//     } else if (a > b) {
-//       let answer = 1;
-//     }
-//   } else if (a - b < 0) {
-//     if (a - b >= 0 - margin) {
-//       let answer = 0;
-//     } else if (a < b) {
-//       let answer = -1;
-//     } else if (a > b) {
-//       let answer = 1;
-//     }
-//   }
-//   if (answer === undefined) {
-//     let answer = 0;
-//   }
-//   return answer;
-// }
-
-// function closeCompare(a, b, margin) {
-//   if (a - b > 0) {
-//     if (a - b <= 0 + margin?.value) {
-//       return 0;
-//     } else if (a < b) {
-//       return -1;
-//     } else if (a > b) {
-//       return 1;
-//     } else {
-//       return 0;
-//     }
-//   } else if (a - b < 0) {
-//     if (a - b >= 0 - margin?.value) {
-//       return 0;
-//     } else if (a < b) {
-//       return -1;
-//     } else if (a > b) {
-//       return 1;
-//     } else {
-//       return 0;
-//     }
-//   }
-// }
+// evt.preventDefault();

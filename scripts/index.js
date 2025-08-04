@@ -49,6 +49,7 @@ const cardsList = document.querySelector(".cards__list");
 //open & closing functions
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+  enableValidation();
 }
 
 function closeModal(modal) {
@@ -116,6 +117,25 @@ const newPostImageCaptionInput = document.querySelector(
 newPostButton.addEventListener("click", () => openModal(newPostModal));
 
 newPostCloseBtn.addEventListener("click", () => closeModal(newPostModal));
+
+// function submitNewPostModal(evt) {
+//   evt.preventDefault();
+
+//   console.log(newPostImageLinkInput.value);
+//   console.log(newPostImageCaptionInput.value);
+
+//   const cardInputs = {
+//     link: newPostImageLinkInput.value,
+//     name: newPostImageCaptionInput.value,
+//   };
+
+//   const newCard = getCardElement(cardInputs);
+
+//   cardsList.prepend(newCard);
+
+//   evt.target.reset();
+//   closeModal(newPostModal);
+// }
 
 function submitNewPostModal(evt) {
   evt.preventDefault();
