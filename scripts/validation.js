@@ -83,3 +83,93 @@ const enableValidation = () => {
 enableValidation();
 
 // delete all below this line
+
+// if (a - b > 0) {
+//   if (a - b <= 0 + margin) {
+//     return 0;
+//   } else if (a < b) {
+//     return -1;
+//   } else if (a > b) {
+//     return 1;
+//   }
+// } else if (a - b < 0) {
+//   if (a - b >= 0 - margin) {
+//     return 0;
+//   } else if (a < b) {
+//     return -1;
+//   } else if (a > b) {
+//     return 1;
+//   }
+// }
+
+// function closeCompare(a, b, margin) {
+//   if (margin === undefined) {
+//     margin = 0;
+//   }
+
+//   if (a - b > 0) {
+//     if (a - b <= 0 + margin) {
+//       return 0;
+//     } else if (a < b) {
+//       return -1;
+//     } else if (a > b) {
+//       return 1;
+//     }
+//   } else if (a - b < 0) {
+//     if (a - b >= 0 - margin) {
+//       return 0;
+//     } else if (a < b) {
+//       return -1;
+//     } else if (a > b) {
+//       return 1;
+//     }
+//   }
+// }
+
+// function closeCompare(a, b, margin) {
+//   if (a - b > 0) {
+//     if (a - b <= 0 + margin) {
+//       let answer = 0;
+//     } else if (a < b) {
+//       let answer = -1;
+//     } else if (a > b) {
+//       let answer = 1;
+//     }
+//   } else if (a - b < 0) {
+//     if (a - b >= 0 - margin) {
+//       let answer = 0;
+//     } else if (a < b) {
+//       let answer = -1;
+//     } else if (a > b) {
+//       let answer = 1;
+//     }
+//   }
+//   if (answer === undefined) {
+//     let answer = 0;
+//   }
+//   return answer;
+// }
+
+// function closeCompare(a, b, margin) {
+//   if (a - b > 0) {
+//     if (a - b <= 0 + margin?.value) {
+//       return 0;
+//     } else if (a < b) {
+//       return -1;
+//     } else if (a > b) {
+//       return 1;
+//     } else {
+//       return 0;
+//     }
+//   } else if (a - b < 0) {
+//     if (a - b >= 0 - margin?.value) {
+//       return 0;
+//     } else if (a < b) {
+//       return -1;
+//     } else if (a > b) {
+//       return 1;
+//     } else {
+//       return 0;
+//     }
+//   }
+// }

@@ -90,7 +90,8 @@
 }
 
 .modal__title {
-  margin: 0 0 32px;
+  /* margin: 0 0 32px; */
+  margin: 0;
   font-family: Poppins;
   font-weight: 500;
   font-size: 32px;
@@ -107,7 +108,8 @@
   font-size: 16px;
   line-height: 110%;
   color: rgba(33, 33, 33, 0.7);
-  margin: 0;
+  margin-top: 32px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -126,6 +128,7 @@
   width: 100%;
   height: 52px;
   padding-left: 12px;
+  /* margin-bottom: 8px; */
 }
 
 .modal__input::placeholder {
@@ -135,7 +138,7 @@
 /* styling on the following two pseudo classes is for example only */
 .modal__input:valid {
   border: 1px solid;
-  margin-bottom: 32px;
+  /* margin-bottom: 32px; */
 }
 
 .modal__input:invalid {
@@ -144,12 +147,13 @@
 }
 
 .modal__input-error {
-  margin-bottom: 32px;
+  /* margin-bottom: 32px; */
+  /* margin-top: 8px; */
   color: rgba(255, 0, 0, 0.7);
   font-family: Poppins;
   font-weight: 500;
   font-size: 16px;
-  line-height: 110.00000000000001%;
+  line-height: 110%;
 }
 
 .modal__input-correct {
@@ -161,6 +165,7 @@
 }
 
 .modal__save-btn {
+  margin-top: 32px;
   background-color: rgba(33, 33, 33, 1);
   font-family: Poppins;
   font-weight: 500;
