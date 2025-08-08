@@ -63,6 +63,9 @@ const editProfileButton = document.querySelector(".profile__edit-button");
 
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
 
+const editProfileBackground =
+  editProfileModal.querySelector(".modal-background");
+
 const editProfileNameInput = document.querySelector("#profile-name-input");
 
 const editProfileDescriptionInput = document.querySelector(
@@ -86,9 +89,14 @@ editProfileButton.addEventListener("click", () => {
   editProfileNameInput.value = profileNameElement.textContent;
   editProfileDescriptionInput.value = profileDescriptionElement.textContent;
   openModal(editProfileModal);
+  listenForEscape(editProfileModal);
 });
 
 editProfileCloseBtn.addEventListener("click", () =>
+  closeModal(editProfileModal)
+);
+
+editProfileBackground.addEventListener("click", () =>
   closeModal(editProfileModal)
 );
 
@@ -100,6 +108,8 @@ const newPostModal = document.querySelector("#post-new-modal");
 const newPostButton = document.querySelector(".profile__add-button");
 
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
+
+const newPostBackground = newPostModal.querySelector(".modal-background");
 
 const newPostSaveBtn = newPostModal.querySelector(".modal__save-btn");
 
@@ -114,28 +124,14 @@ const newPostImageCaptionInput = document.querySelector(
   "#new-post-caption-input"
 );
 
-newPostButton.addEventListener("click", () => openModal(newPostModal));
+newPostButton.addEventListener("click", () => {
+  openModal(newPostModal);
+  listenForEscape(newPostModal);
+});
 
 newPostCloseBtn.addEventListener("click", () => closeModal(newPostModal));
 
-// function submitNewPostModal(evt) {
-//   evt.preventDefault();
-
-//   console.log(newPostImageLinkInput.value);
-//   console.log(newPostImageCaptionInput.value);
-
-//   const cardInputs = {
-//     link: newPostImageLinkInput.value,
-//     name: newPostImageCaptionInput.value,
-//   };
-
-//   const newCard = getCardElement(cardInputs);
-
-//   cardsList.prepend(newCard);
-
-//   evt.target.reset();
-//   closeModal(newPostModal);
-// }
+newPostBackground.addEventListener("click", () => closeModal(newPostModal));
 
 function submitNewPostModal(evt) {
   evt.preventDefault();
@@ -155,10 +151,6 @@ function submitNewPostModal(evt) {
   evt.target.reset();
   closeModal(newPostModal);
 }
-
-newPostButton.addEventListener("click", () => openModal(newPostModal));
-
-newPostCloseBtn.addEventListener("click", () => closeModal(newPostModal));
 
 newPostModal.addEventListener("submit", submitNewPostModal);
 
@@ -193,6 +185,7 @@ function getCardElement(data) {
     modalPreviewImage.alt = data.name;
     modalPreviewTitle.textContent = data.name;
     openModal(modalPreview);
+    listenForEscape(modalPreview);
   });
 
   return cardElement;
@@ -209,49 +202,26 @@ const modalPreviewCloseBtn = modalPreview.querySelector(
   ".modal__close-btn_preview"
 );
 
+const modalPreviewBackground = modalPreview.querySelector(".modal-background");
+
 const modalPreviewImage = modalPreview.querySelector(".modal__image-preview");
 
 const modalPreviewTitle = modalPreview.querySelector(".modal__preview-title");
 
 modalPreviewCloseBtn.addEventListener("click", () => closeModal(modalPreview));
 
-// stage 9 features
+modalPreviewBackground.addEventListener("click", () =>
+  closeModal(modalPreview)
+);
 
-// disable "submit" button if required fields are empty
-
-// const formElement = document.querySelector(".modal__form");
-
-// const inputList = Array.from(formElement.querySelectorAll(".modal__input"));
-
-// const hasInvalidInput = (inputList) => {
-//   return inputList.some((inputElement) => {
-//     return !inputElement.validity.valid;
-//   });
-// };
-
-// const toggleButtonState = (inputList, buttonElement) => {
-//   if (hasInvalidInput(inputList)) {
-//     buttonElement.classList.add("form__submit_inactive");
-//   } else {
-//     buttonElement.classList.remove("form__submit_inactive");
-//   }
-// };
-
-// const setEventListeners = (formElement) => {
-//   // Find all the form fields and make an array of them
-//   const inputList = Array.from(formElement.querySelectorAll(".form__input"));
-//   // Find the submit button in the current form
-//   const buttonElement = formElement.querySelector(".form__submit");
-//   toggleButtonState(inputList, buttonElement);
-//   // Call the toggleButtonState() before we start listening to the input event
-//   inputList.forEach((inputElement) => {
-//     inputElement.addEventListener("input", () => {
-//       checkInputValidity(formElement, inputElement);
-//       // Call the toggleButtonState() and pass an array of fields and the button to it
-//     });
-//   });
-// };
-
-// // profile
-
-// // post
+// keydown
+const listenForEscape = (modal) => {
+  if (modal.classList.contains("modal_is-opened")) {
+    document.addEventListener("keydown", function (evt) {
+      console.log(`The ${evt.key} was pressed`);
+      if (evt.key === "Escape") {
+        closeModal(modal);
+      }
+    });
+  }
+};

@@ -15,7 +15,6 @@ const formInput = formElement.querySelector(".modal__input");
 // functions
 const showInputError = (formElement, inputElement, inputErrorMessage) => {
   const errorMsgId = inputElement.id + "-error";
-  // console.log("the error message is", errorMsgId);
   const errorMsgElement = document.querySelector("#" + errorMsgId);
   errorMsgElement.textContent = inputErrorMessage;
 };
@@ -30,7 +29,6 @@ const removeInputError = (formElement, inputElement, inputErrorMessage) => {
 const checkInputValidity = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
-    // console.log(inputElement.validationMessage);
   } else if (inputElement.validity.valid) {
     removeInputError(formElement, inputElement, inputElement.validationMessage);
   }
@@ -39,12 +37,10 @@ const checkInputValidity = (formElement, inputElement) => {
 const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
-    // console.log(inputElement.validity.valid);
   });
 };
 
 const toggleButtonState = (inputList, buttonElement) => {
-  // use the following line to remove error messages
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add("modal__save-btn_inactive");
   } else if (!hasInvalidInput(inputList)) {
@@ -61,30 +57,18 @@ const setEventListeners = (formElement) => {
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", () => {
       checkInputValidity(formElement, inputElement);
-      // checkInputValidity(inputList, buttonElement);
-      // checkValidity(inputList, buttonElement);
       toggleButtonState(inputList, buttonElement);
     });
   });
 };
 
 const enableValidation = () => {
-  // const formList = Array.from(document.querySelectorAll(".modal__form"));
   const formList = document.querySelectorAll(".modal__form");
   formList.forEach((formElement) => {
-    // formElement.addEventListener("submit", (evt) => {
-    //   console.log(formElement);
-    // evt.preventDefault();
-    // });
     setEventListeners(formElement);
-    // evt.preventDefault();
   });
-  // evt.preventDefault();
 };
 
 // Passing the configuration object to enableValidation when we call it.
 // enableValidation(settings);
 enableValidation();
-
-// delete all below this line
-// evt.preventDefault();
