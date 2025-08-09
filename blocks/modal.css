@@ -22,7 +22,7 @@
 }
 
 .modal__container {
-  box-sizing: border;
+  box-sizing: border-box;
   padding: 32px 50px;
   position: fixed;
   z-index: 2;
@@ -168,9 +168,7 @@
 .modal__input-correct {
   margin: 0;
   padding: 0;
-  color: none;
   line-height: 0;
-  size: 0;
 }
 
 .modal__save-btn {
