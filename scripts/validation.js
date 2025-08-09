@@ -1,17 +1,9 @@
-//my version
-// original working consts
-// const formElement = document.querySelector(".modal__form");
-// const formInput = formElement.querySelector(".modal__input");
-
 // configuration object
 const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
-  // submitButtonSelector: ".modal__button",
   submitButtonSelector: ".modal__save-btn",
-  // inactiveButtonClass: "modal__button_disabled",
   inactiveButtonClass: "modal__save-btn_inactive",
-  // inputErrorClass: "modal__input_type_error",
   inputErrorClass: "-error",
   errorClass: "modal__error_visible",
 };
@@ -23,7 +15,6 @@ const showInputError = (
   inputErrorMessage,
   config
 ) => {
-  // const errorMsgId = inputElement.id + "-error";
   if (config != undefined) {
     const errorMsgId = inputElement.id + config.inputErrorClass;
     console.log(errorMsgId);
@@ -59,15 +50,6 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-// original working function
-// const toggleButtonState = (inputList, buttonElement) => {
-//   if (hasInvalidInput(inputList)) {
-//     buttonElement.classList.add("modal__save-btn_inactive");//config.inactiveButtonClass
-//   } else if (!hasInvalidInput(inputList)) {
-//     buttonElement.classList.remove("modal__save-btn_inactive");//config.inactiveButtonClass
-//   }
-// };
-
 const toggleButtonState = (inputList, buttonElement, config) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(config.inactiveButtonClass);
@@ -75,20 +57,6 @@ const toggleButtonState = (inputList, buttonElement, config) => {
     buttonElement.classList.remove(config.inactiveButtonClass);
   }
 };
-
-// to check input state upon modal opening
-// original working function below
-// const setEventListeners = (formElement) => {
-//   const inputList = Array.from(formElement.querySelectorAll(".modal__input"));
-//   const buttonElement = formElement.querySelector(".modal__save-btn");
-//   toggleButtonState(inputList, buttonElement);
-//   inputList.forEach((inputElement) => {
-//     inputElement.addEventListener("input", () => {
-//       checkInputValidity(formElement, inputElement);
-//       toggleButtonState(inputList, buttonElement);
-//     });
-//   });
-// };
 
 const setEventListeners = (formElement, config) => {
   const inputList = Array.from(
@@ -103,14 +71,6 @@ const setEventListeners = (formElement, config) => {
     });
   });
 };
-
-// original working function below
-// const enableValidation = () => {
-//   const formList = document.querySelectorAll(".modal__form");
-//   formList.forEach((formElement) => {
-//     setEventListeners(formElement);
-//   });
-// };
 
 function enableValidation(config) {
   if (config != undefined) {
@@ -127,15 +87,4 @@ function enableValidation(config) {
   }
 }
 
-// Passing the configuration object to enableValidation when we call it.
 enableValidation(settings);
-// enableValidation();
-
-//
-// configuration object
-// if (config != undefined) {
-//   //desired action
-// } else {
-//   config = settings;
-//   // still desired action
-// }
