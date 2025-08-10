@@ -22,7 +22,7 @@
 }
 
 .modal__container {
-  box-sizing: border-box;
+  box-sizing: content-box;
   padding: 32px 50px;
   position: fixed;
   z-index: 2;
@@ -112,6 +112,10 @@
   line-height: 100%;
 }
 
+.modal__form {
+  /* object-fit: contain; */
+}
+
 .modal__form:hover {
   cursor: pointer;
 }
@@ -130,7 +134,7 @@
 }
 
 .modal__input {
-  box-sizing: border;
+  box-sizing: border-box;
   display: block;
   font-family: Poppins;
   font-weight: 500;

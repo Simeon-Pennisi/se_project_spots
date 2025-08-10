@@ -5,7 +5,8 @@ const settings = {
   submitButtonSelector: ".modal__save-btn",
   inactiveButtonClass: "modal__save-btn_inactive",
   inputErrorClass: "-error",
-  errorClass: "modal__error_visible",
+  // errorClass: "modal__error_visible", //modal__input-error
+  errorClass: "modal__input-error",
 };
 
 // functions
@@ -19,11 +20,15 @@ const showInputError = (
     const errorMsgId = inputElement.id + config.inputErrorClass;
     const errorMsgElement = document.querySelector("#" + errorMsgId);
     errorMsgElement.textContent = inputErrorMessage;
+    // test line below
+    errorMsgElement.classList.add(config.errorClass);
   } else {
     config = settings;
     const errorMsgId = inputElement.id + config.inputErrorClass;
     const errorMsgElement = document.querySelector("#" + errorMsgId);
     errorMsgElement.textContent = inputErrorMessage;
+    // test line below
+    errorMsgElement.classList.add(config.errorClass);
   }
 };
 
