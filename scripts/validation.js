@@ -17,13 +17,11 @@ const showInputError = (
 ) => {
   if (config != undefined) {
     const errorMsgId = inputElement.id + config.inputErrorClass;
-    console.log(errorMsgId);
     const errorMsgElement = document.querySelector("#" + errorMsgId);
     errorMsgElement.textContent = inputErrorMessage;
   } else {
     config = settings;
     const errorMsgId = inputElement.id + config.inputErrorClass;
-    console.log(errorMsgId);
     const errorMsgElement = document.querySelector("#" + errorMsgId);
     errorMsgElement.textContent = inputErrorMessage;
   }

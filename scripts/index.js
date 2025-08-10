@@ -136,8 +136,8 @@ newPostBackground.addEventListener("click", () => closeModal(newPostModal));
 function submitNewPostModal(evt) {
   evt.preventDefault();
 
-  console.log(newPostImageLinkInput.value);
-  console.log(newPostImageCaptionInput.value);
+  // console.log(newPostImageLinkInput.value);
+  // console.log(newPostImageCaptionInput.value);
 
   const cardInputs = {
     link: newPostImageLinkInput.value,
@@ -218,7 +218,7 @@ modalPreviewBackground.addEventListener("click", () =>
 const listenForEscape = (modal) => {
   if (modal.classList.contains("modal_is-opened")) {
     document.addEventListener("keydown", function (evt) {
-      console.log(`The ${evt.key} was pressed`);
+      // console.log(`The ${evt.key} was pressed`);
       if (evt.key === "Escape") {
         closeModal(modal);
       }
