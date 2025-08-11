@@ -35,8 +35,10 @@ const showInputError = (
 const removeInputError = (formElement, inputElement, inputErrorMessage) => {
   const errorMsgId = inputElement.id + "-error";
   const errorMsgElement = document.querySelector("#" + errorMsgId);
-  errorMsgElement.textContent = undefined;
-  errorMsgElement.classList.add("modal__input-correct");
+  // errorMsgElement.textContent = undefined;
+  errorMsgElement.textContent = "";
+  // errorMsgElement.classList.add("modal__input-correct");
+  errorMsgElement.classList.remove("modal__input-error");
 };
 
 const checkInputValidity = (formElement, inputElement) => {

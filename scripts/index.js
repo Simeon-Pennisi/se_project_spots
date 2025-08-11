@@ -49,8 +49,10 @@ const cardsList = document.querySelector(".cards__list");
 //open & closing functions
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
-  enableValidation();
+  // enableValidation();
 }
+
+enableValidation();
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
@@ -214,14 +216,16 @@ modalPreviewBackground.addEventListener("click", () =>
   closeModal(modalPreview)
 );
 
-// keydown
+// keydown f
 const listenForEscape = (modal) => {
-  if (modal.classList.contains("modal_is-opened")) {
-    document.addEventListener("keydown", function (evt) {
+  document.addEventListener(
+    "keydown",
+    function (evt) {
       // console.log(`The ${evt.key} was pressed`);
       if (evt.key === "Escape") {
         closeModal(modal);
       }
-    });
-  }
+    },
+    { once: true }
+  );
 };

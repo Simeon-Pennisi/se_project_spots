@@ -154,6 +154,9 @@
 
 .modal__input:valid {
   border: 1px solid;
+  /* margin: 0;
+  padding: 0;
+  line-height: 0; */
 }
 
 .modal__input:invalid {
@@ -169,11 +172,11 @@
   line-height: 110%;
 }
 
-.modal__input-correct {
+/* .modal__input-correct {
   margin: 0;
   padding: 0;
   line-height: 0;
-}
+} */
 
 .modal__save-btn {
   margin-top: 32px;
