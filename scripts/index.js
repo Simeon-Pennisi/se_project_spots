@@ -49,10 +49,9 @@ const cardsList = document.querySelector(".cards__list");
 //open & closing functions
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
-  // enableValidation();
+  enableValidation();
+  // disable save button
 }
-
-enableValidation();
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
@@ -138,9 +137,6 @@ newPostBackground.addEventListener("click", () => closeModal(newPostModal));
 function submitNewPostModal(evt) {
   evt.preventDefault();
 
-  // console.log(newPostImageLinkInput.value);
-  // console.log(newPostImageCaptionInput.value);
-
   const cardInputs = {
     link: newPostImageLinkInput.value,
     name: newPostImageCaptionInput.value,
@@ -216,16 +212,18 @@ modalPreviewBackground.addEventListener("click", () =>
   closeModal(modalPreview)
 );
 
-// keydown f
+// keydown on escape
+function escapeKeyDown(evt) {
+  if (evt.key === "Escape") {
+    const modal = document.querySelector(".modal_is-opened");
+    closeModal(modal);
+  }
+}
+
 const listenForEscape = (modal) => {
-  document.addEventListener(
-    "keydown",
-    function (evt) {
-      // console.log(`The ${evt.key} was pressed`);
-      if (evt.key === "Escape") {
-        closeModal(modal);
-      }
-    },
-    { once: true }
-  );
+  document.addEventListener("keydown", escapeKeyDown);
+};
+
+const stopListeningForEscape = (modal) => {
+  document.removeEventListener("keydown", escapeKeyDown);
 };

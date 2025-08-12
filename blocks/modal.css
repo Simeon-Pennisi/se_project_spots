@@ -49,6 +49,7 @@
 
 .modal__container-preview {
   position: relative;
+  z-index: 2;
 }
 
 .modal__image-preview {
@@ -104,7 +105,6 @@
 }
 
 .modal__title {
-  /* margin: 0 0 32px; */
   margin: 0;
   font-family: Poppins;
   font-weight: 500;
@@ -113,7 +113,6 @@
 }
 
 .modal__form {
-  /* object-fit: contain; */
 }
 
 .modal__form:hover {
@@ -154,9 +153,6 @@
 
 .modal__input:valid {
   border: 1px solid;
-  /* margin: 0;
-  padding: 0;
-  line-height: 0; */
 }
 
 .modal__input:invalid {
@@ -171,12 +167,6 @@
   font-size: 16px;
   line-height: 110%;
 }
-
-/* .modal__input-correct {
-  margin: 0;
-  padding: 0;
-  line-height: 0;
-} */
 
 .modal__save-btn {
   margin-top: 32px;

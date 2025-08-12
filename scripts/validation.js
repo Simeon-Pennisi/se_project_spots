@@ -5,43 +5,30 @@ const settings = {
   submitButtonSelector: ".modal__save-btn",
   inactiveButtonClass: "modal__save-btn_inactive",
   inputErrorClass: "-error",
-  // errorClass: "modal__error_visible", //modal__input-error
   errorClass: "modal__input-error",
 };
 
-// functions
 const showInputError = (
   formElement,
   inputElement,
   inputErrorMessage,
-  config
+  config = settings
 ) => {
-  if (config != undefined) {
-    const errorMsgId = inputElement.id + config.inputErrorClass;
-    const errorMsgElement = document.querySelector("#" + errorMsgId);
-    errorMsgElement.textContent = inputErrorMessage;
-    // test line below
-    errorMsgElement.classList.add(config.errorClass);
-  } else {
-    config = settings;
-    const errorMsgId = inputElement.id + config.inputErrorClass;
-    const errorMsgElement = document.querySelector("#" + errorMsgId);
-    errorMsgElement.textContent = inputErrorMessage;
-    // test line below
-    errorMsgElement.classList.add(config.errorClass);
-  }
+  config = settings;
+  const errorMsgId = inputElement.id + config.inputErrorClass;
+  const errorMsgElement = formElement.querySelector("#" + errorMsgId);
+  errorMsgElement.textContent = inputErrorMessage;
+  errorMsgElement.classList.add(config.errorClass);
 };
 
-const removeInputError = (formElement, inputElement, inputErrorMessage) => {
+const removeInputError = (formElement, inputElement, config) => {
   const errorMsgId = inputElement.id + "-error";
-  const errorMsgElement = document.querySelector("#" + errorMsgId);
-  // errorMsgElement.textContent = undefined;
+  const errorMsgElement = formElement.querySelector("#" + errorMsgId);
   errorMsgElement.textContent = "";
-  // errorMsgElement.classList.add("modal__input-correct");
-  errorMsgElement.classList.remove("modal__input-error");
+  errorMsgElement.classList.remove(config.errorClass);
 };
 
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (formElement, inputElement, config) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
   } else if (inputElement.validity.valid) {
@@ -58,10 +45,23 @@ const hasInvalidInput = (inputList) => {
 const toggleButtonState = (inputList, buttonElement, config) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add(config.inactiveButtonClass);
-  } else if (!hasInvalidInput(inputList)) {
+    buttonElement.disabled = true;
+  } else {
     buttonElement.classList.remove(config.inactiveButtonClass);
+    buttonElement.disabled = false;
   }
 };
+
+// const toggleErrorMessage = (inputList, errorMessage, config) => {
+//   if (hasInvalidInput(inputList)) {
+//     // showInputError(config.inactiveButtonClass);
+//     // showInputError(formElement, inputElement, errorMessage, config);
+//     removeInputError(formElement, inputElement, errorMessage);
+//   }
+//   // else if (!hasInvalidInput(inputList)) {
+//   //   removeInputError(formElement, inputElement, errorMessage);
+//   // }
+// };
 
 const setEventListeners = (formElement, config) => {
   const inputList = Array.from(
@@ -73,23 +73,23 @@ const setEventListeners = (formElement, config) => {
     inputElement.addEventListener("input", () => {
       checkInputValidity(formElement, inputElement, config);
       toggleButtonState(inputList, buttonElement, config);
+      // toggleErrorMessage(inputList, errorMessage, config);
     });
   });
 };
 
-function enableValidation(config) {
-  if (config != undefined) {
-    const formList = document.querySelectorAll(config.formSelector);
-    formList.forEach((formElement) => {
-      setEventListeners(formElement, config);
-    });
-  } else {
-    config = settings;
-    const formList = document.querySelectorAll(config.formSelector);
-    formList.forEach((formElement) => {
-      setEventListeners(formElement, config);
-    });
-  }
+function enableValidation(config = settings) {
+  const formList = document.querySelectorAll(config.formSelector);
+  formList.forEach((formElement) => {
+    setEventListeners(formElement, config);
+  });
+}
+
+function resetValidation(config = settings) {
+  const formList = document.querySelectorAll(config.formSelector);
+  formList.forEach((formElement) => {
+    checkInputValidity(formElement, config.inputSelector);
+  });
 }
 
 enableValidation(settings);
