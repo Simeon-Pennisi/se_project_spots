@@ -90,11 +90,9 @@ editProfileButton.addEventListener("click", () => {
   editProfileNameInput.value = profileNameElement.textContent;
   editProfileDescriptionInput.value = profileDescriptionElement.textContent;
   openModal(editProfileModal);
-  // check input validity here
   const modalInputList = editProfileModal.querySelectorAll(".modal__input");
   modalInputList.forEach((modalInput) => {
     if (modalInput.validity.valid) {
-      console.log("We found it");
       const errorMessageId = modalInput.id + "-error";
       const errorMessageElement = editProfileModal.querySelector(
         "#" + errorMessageId
@@ -240,56 +238,3 @@ const listenForEscape = (modal) => {
 const stopListeningForEscape = (modal) => {
   document.removeEventListener("keydown", escapeKeyDown);
 };
-
-// removing error message from Edit Profile when it is closed and reopened
-// const resetValidation = (modal) => {
-//   const modalInput = modal.querySelector(".modal__input");
-//   if (!modalInput.validity.valid) {
-//     console.log("We found it");
-//   }
-// };
-// if profileNameElement === valid
-//  error message = ""
-// and remove input error class
-//
-// repeat for profileDescriptionElement
-//
-// const checkInputValidity = (formElement, inputElement, config) => {
-//   if (!inputElement.validity.valid) {
-//     showInputError(formElement, inputElement, inputElement.validationMessage);
-//   } else if (inputElement.validity.valid) {
-//     removeInputError(formElement, inputElement, inputElement.validationMessage);
-//   }
-// };
-//
-// const settings = {
-//   formSelector: ".modal__form",
-//   inputSelector: ".modal__input",
-//   submitButtonSelector: ".modal__save-btn",
-//   inactiveButtonClass: "modal__save-btn_inactive",
-//   inputErrorClass: "-error",
-//   errorClass: "modal__input-error",
-// };
-//
-// const removeInputError = (formElement, inputElement, config) => {
-//   const errorMsgId = inputElement.id + "-error";
-//   const errorMsgElement = formElement.querySelector("#" + errorMsgId);
-//   errorMsgElement.textContent = "";
-//   errorMsgElement.classList.remove(config.errorClass);
-// };
-//
-//
-//
-// This works, but only for name not description
-//
-// const modalInput = editProfileModal.querySelector(".modal__input");
-// if (modalInput.validity.valid) {
-//   console.log("We found it");
-//   const errorMessageId = modalInput.id + "-error";
-//   // const errorMessageElement = formElement.querySelector("#" + errorMsgId);
-//   const errorMessageElement = editProfileModal.querySelector(
-//     "#" + errorMessageId
-//   );
-//   errorMessageElement.textContent = "";
-//   errorMessageElement.classList.remove(".modal__input-error");
-// }
