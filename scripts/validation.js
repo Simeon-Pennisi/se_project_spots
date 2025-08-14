@@ -14,7 +14,6 @@ const showInputError = (
   inputErrorMessage,
   config = settings
 ) => {
-  config = settings;
   const errorMsgId = inputElement.id + config.inputErrorClass;
   const errorMsgElement = formElement.querySelector("#" + errorMsgId);
   errorMsgElement.textContent = inputErrorMessage;
@@ -30,9 +29,14 @@ const removeInputError = (formElement, inputElement, config) => {
 
 const checkInputValidity = (formElement, inputElement, config) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage);
+    showInputError(
+      formElement,
+      inputElement,
+      inputElement.validationMessage,
+      config
+    );
   } else if (inputElement.validity.valid) {
-    removeInputError(formElement, inputElement, inputElement.validationMessage);
+    removeInputError(formElement, inputElement, config);
   }
 };
 
@@ -85,10 +89,20 @@ function enableValidation(config = settings) {
   });
 }
 
-function resetValidation(config = settings) {
-  const formList = document.querySelectorAll(config.formSelector);
-  formList.forEach((formElement) => {
-    checkInputValidity(formElement, config.inputSelector);
+// original function
+//
+// function resetValidation(config = settings) {
+//   const formList = document.querySelectorAll(config.formSelector);
+//   formList.forEach((formElement) => {
+//     checkInputValidity(formElement, config.inputSelector);
+//   });
+// }
+//
+// better version below
+
+function resetValidation(formElement, inputList, config = settings) {
+  inputList.forEach((input) => {
+    removeInputError(formElement, input, config);
   });
 }
 
