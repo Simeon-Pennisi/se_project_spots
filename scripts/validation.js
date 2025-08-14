@@ -56,17 +56,6 @@ const toggleButtonState = (inputList, buttonElement, config) => {
   }
 };
 
-// const toggleErrorMessage = (inputList, errorMessage, config) => {
-//   if (hasInvalidInput(inputList)) {
-//     // showInputError(config.inactiveButtonClass);
-//     // showInputError(formElement, inputElement, errorMessage, config);
-//     removeInputError(formElement, inputElement, errorMessage);
-//   }
-//   // else if (!hasInvalidInput(inputList)) {
-//   //   removeInputError(formElement, inputElement, errorMessage);
-//   // }
-// };
-
 const setEventListeners = (formElement, config) => {
   const inputList = Array.from(
     formElement.querySelectorAll(config.inputSelector)
@@ -77,7 +66,6 @@ const setEventListeners = (formElement, config) => {
     inputElement.addEventListener("input", () => {
       checkInputValidity(formElement, inputElement, config);
       toggleButtonState(inputList, buttonElement, config);
-      // toggleErrorMessage(inputList, errorMessage, config);
     });
   });
 };

@@ -49,12 +49,14 @@ const cardsList = document.querySelector(".cards__list");
 //open & closing functions
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
-  enableValidation();
+  listenForEscape();
+  // enableValidation(); function being called to
   // disable save button
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+  stopListeningForEscape();
 }
 
 //edit profile modal
@@ -79,6 +81,8 @@ const profileDescriptionElement = document.querySelector(
   ".profile__description"
 );
 
+const editProfileForm = editProfileModal.querySelector(".modal__form");
+
 function submitEditProfileModal(evt) {
   evt.preventDefault();
   profileNameElement.textContent = editProfileNameInput.value;
@@ -90,18 +94,25 @@ editProfileButton.addEventListener("click", () => {
   editProfileNameInput.value = profileNameElement.textContent;
   editProfileDescriptionInput.value = profileDescriptionElement.textContent;
   openModal(editProfileModal);
-  const modalInputList = editProfileModal.querySelectorAll(".modal__input");
-  modalInputList.forEach((modalInput) => {
-    if (modalInput.validity.valid) {
-      const errorMessageId = modalInput.id + "-error";
-      const errorMessageElement = editProfileModal.querySelector(
-        "#" + errorMessageId
-      );
-      errorMessageElement.textContent = "";
-      errorMessageElement.classList.remove(".modal__input-error");
-    }
-  });
-  listenForEscape(editProfileModal);
+  // const modalInputList = editProfileModal.querySelectorAll(".modal__input");
+  // modalInputList.forEach((modalInput) => {
+  //   if (modalInput.validity.valid) {
+  //     const errorMessageId = modalInput.id + "-error";
+  //     const errorMessageElement = editProfileModal.querySelector(
+  //       "#" + errorMessageId
+  //     );
+  //     errorMessageElement.textContent = "";
+  //     errorMessageElement.classList.remove(".modal__input-error");
+  //   }
+  // });
+  //
+  resetValidation(
+    editProfileForm,
+    [editProfileNameInput, editProfileDescriptionInput],
+    settings
+  );
+  //
+  // listenForEscape(editProfileModal);
 });
 
 editProfileCloseBtn.addEventListener("click", () =>
@@ -112,7 +123,8 @@ editProfileBackground.addEventListener("click", () =>
   closeModal(editProfileModal)
 );
 
-editProfileModal.addEventListener("submit", submitEditProfileModal);
+// editProfileModal.addEventListener("submit", submitEditProfileModal);
+editProfileForm.addEventListener("submit", submitEditProfileModal);
 
 //new post modal
 const newPostModal = document.querySelector("#post-new-modal");
@@ -136,9 +148,11 @@ const newPostImageCaptionInput = document.querySelector(
   "#new-post-caption-input"
 );
 
+const newPostForm = newPostModal.querySelector(".modal__form");
+
 newPostButton.addEventListener("click", () => {
   openModal(newPostModal);
-  listenForEscape(newPostModal);
+  // listenForEscape(newPostModal);
 });
 
 newPostCloseBtn.addEventListener("click", () => closeModal(newPostModal));
@@ -158,10 +172,18 @@ function submitNewPostModal(evt) {
   cardsList.prepend(newCard);
 
   evt.target.reset();
+  //
+  toggleButtonState(
+    [newPostImageLinkInput, newPostImageCaptionInput],
+    evt.submitter,
+    settings
+  );
+  //
   closeModal(newPostModal);
 }
 
-newPostModal.addEventListener("submit", submitNewPostModal);
+// newPostModal.addEventListener("submit", submitNewPostModal);
+newPostForm.addEventListener("submit", submitNewPostModal);
 
 // primary function
 function getCardElement(data) {
@@ -194,7 +216,7 @@ function getCardElement(data) {
     modalPreviewImage.alt = data.name;
     modalPreviewTitle.textContent = data.name;
     openModal(modalPreview);
-    listenForEscape(modalPreview);
+    // listenForEscape(modalPreview);
   });
 
   return cardElement;
@@ -231,10 +253,10 @@ function escapeKeyDown(evt) {
   }
 }
 
-const listenForEscape = (modal) => {
+const listenForEscape = () => {
   document.addEventListener("keydown", escapeKeyDown);
 };
 
-const stopListeningForEscape = (modal) => {
+const stopListeningForEscape = () => {
   document.removeEventListener("keydown", escapeKeyDown);
 };
