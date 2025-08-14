@@ -72,7 +72,7 @@
 
 .modal__preview-title {
   color: rgba(255, 255, 255, 1);
-  font-family: Poppins;
+  font-family: "Poppins", Arial, sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 120%;
@@ -106,7 +106,7 @@
 
 .modal__title {
   margin: 0;
-  font-family: Poppins;
+  font-family: "Poppins", Arial, sans-serif;
   font-weight: 500;
   font-size: 32px;
   line-height: 100%;
@@ -120,7 +120,7 @@
 }
 
 .modal__label {
-  font-family: Poppins;
+  font-family: "Poppins", Arial, sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 110%;
@@ -135,7 +135,7 @@
 .modal__input {
   box-sizing: border-box;
   display: block;
-  font-family: Poppins;
+  font-family: "Poppins", Arial, sans-serif;
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
@@ -162,7 +162,7 @@
 
 .modal__input-error {
   color: rgba(255, 0, 0, 0.7);
-  font-family: Poppins;
+  font-family: "Poppins", Arial, sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 110%;
@@ -171,7 +171,7 @@
 .modal__save-btn {
   margin-top: 32px;
   background-color: rgba(33, 33, 33, 1);
-  font-family: Poppins;
+  font-family: "Poppins", Arial, sans-serif;
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;

@@ -22,28 +22,6 @@
   margin-top: 12px;
 }
 
-/* .card__content-title {
-  color: #212121;
-  font-family: "Poppins", Arial, sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 120%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  max-width: 353px;
-} */
-
-/* .card__content-title {
-  max-width: 228px;
-  font-size: 16px;
-  line-height: 100%;
-  padding-bottom: 2px;
-} */
-
 .card__content-title {
   font-family: "Poppins", Arial, sans-serif;
   font-weight: 500;
