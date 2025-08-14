@@ -77,17 +77,6 @@ function enableValidation(config = settings) {
   });
 }
 
-// original function
-//
-// function resetValidation(config = settings) {
-//   const formList = document.querySelectorAll(config.formSelector);
-//   formList.forEach((formElement) => {
-//     checkInputValidity(formElement, config.inputSelector);
-//   });
-// }
-//
-// better version below
-
 function resetValidation(formElement, inputList, config = settings) {
   inputList.forEach((input) => {
     removeInputError(formElement, input, config);
