@@ -83,4 +83,6 @@ function resetValidation(formElement, inputList, config = settings) {
   });
 }
 
-enableValidation(settings);
+// enableValidation(settings);
+
+export { enableValidation, resetValidation, settings, toggleButtonState };

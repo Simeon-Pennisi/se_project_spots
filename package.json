@@ -1,0 +1,19 @@
+{
+  "name": "se_project_spots",
+  "version": "1.0.0",
+  "description": "first attempt to install NPM on project spots",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Simeon-Pennisi/se_project_spots.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Simeon-Pennisi/se_project_spots/issues"
+  },
+  "homepage": "https://github.com/Simeon-Pennisi/se_project_spots#readme"
+}

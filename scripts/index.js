@@ -1,3 +1,10 @@
+import {
+  enableValidation,
+  resetValidation,
+  settings,
+  toggleButtonState,
+} from "./validation.js";
+
 const initialCards = [
   {
     // example card
@@ -41,6 +48,9 @@ const initialCards = [
     link: "https://unsplash.com/photos/a-person-stacking-rocks-on-top-of-each-other-RFFzlqBSmRw",
   },
 ];
+
+// keep an eye on this line
+enableValidation(settings);
 
 const cardTemplate = document.querySelector("#card-template");
 
