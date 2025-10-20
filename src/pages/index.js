@@ -1,9 +1,12 @@
+// import "./index.css"; --- IGNORE ---
+import "./index.css";
+
 import {
   enableValidation,
   resetValidation,
   settings,
   toggleButtonState,
-} from "./validation.js";
+} from "../scripts/validation.js";
 
 const initialCards = [
   {

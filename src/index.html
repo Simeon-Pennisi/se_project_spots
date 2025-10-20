@@ -8,7 +8,7 @@
       content="social website for users to share photos"
     />
     <meta name="author" content="Simeon Pennisi" />
-    <link rel="stylesheet" href="pages/index.css" />
+    <!-- <link rel="stylesheet" href="pages/index.css" /> -->
     <link rel="shortcut icon" href="favicon.ico" />
     <title>Spots</title>
   </head>
@@ -17,7 +17,7 @@
       <header class="header">
         <img
           class="header__logo"
-          src="./images/logo_icon.svg"
+          src="<%= require('./images/logo_icon.svg')%>"
           alt="spot logo"
         />
       </header>
@@ -26,7 +26,7 @@
         <section class="profile page__section">
           <img
             class="profile__avatar"
-            src="./images/avatar.jpg"
+            src="<%= require('./images/avatar.jpg')%>"
             alt="user avatar"
           />
           <div class="profile__column">
@@ -38,7 +38,7 @@
               aria-label="edit profile button"
             >
               <img
-                src="./images/edit-profile-pencil_icon.svg"
+                src="<%= require('./images/edit-profile-pencil_icon.svg')%>"
                 alt="pencil icon"
               />
               <span class="profile__edit-button-text">Edit Profile</span>
@@ -50,9 +50,9 @@
             aria-label="add profile button"
           >
             <img
-              src="./images/add-button_icon.svg"
-              alt="add button"
               class="profile__add-button-icon"
+              src="<%= require('./images/add-button_icon.svg')%>"
+              alt="add button"
             />
             New Post
           </button>
@@ -213,6 +213,6 @@
     </div>
     <!-- <script src="./scripts/validation.js"></script>
     <script src="./scripts/index.js"></script> -->
-    <script src="./scripts/index.js" type="module"></script>
+    <!-- <script src="./scripts/index.js" type="module"></script> -->
   </body>
 </html>
