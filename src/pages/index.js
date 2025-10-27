@@ -1,4 +1,3 @@
-// import "./index.css"; --- IGNORE ---
 import "./index.css";
 
 import {
@@ -7,6 +6,8 @@ import {
   settings,
   toggleButtonState,
 } from "../scripts/validation.js";
+
+import Api from "../scripts/api.js";
 
 const initialCards = [
   {
