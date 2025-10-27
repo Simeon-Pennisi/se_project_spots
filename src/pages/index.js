@@ -17,18 +17,33 @@ const api = new Api({
   },
 });
 
+// api
+//   .getInitialCards()
+//   .then((data) => {
+//     console.log(data); // log the received data
+//     data.forEach((element) => {
+//       const cardElem = getCardElement(element);
+//       cardsList.append(cardElem);
+//     });
+//   })
+//   .catch((err) => {
+//     console.error(err); // log the error if the request fails
+//   });
+
 api
-  .getInitialCards()
-  .then((data) => {
-    console.log(data); // log the received data
+  .getApplicationInfo()
+  .then(([data]) => {
+    console.log("Cards Data:", data);
+    // You can also process user info here if needed
     data.forEach((element) => {
       const cardElem = getCardElement(element);
       cardsList.append(cardElem);
     });
   })
   .catch((err) => {
-    console.log(err); // log the error if the request fails
+    console.error("Error fetching application info:", err);
   });
+
 // const initialCards = [
 //   {
 //     // example card
