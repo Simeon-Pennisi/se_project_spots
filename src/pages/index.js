@@ -7,7 +7,7 @@ import {
   toggleButtonState,
 } from "../scripts/validation.js";
 
-import Api from "../scripts/Api.js";
+import Api from "../utils/Api.js";
 
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1/cards",
