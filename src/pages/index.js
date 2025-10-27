@@ -10,7 +10,7 @@ import {
 import Api from "../utils/Api.js";
 
 const api = new Api({
-  baseUrl: "https://around-api.en.tripleten-services.com/v1/cards",
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
     authorization: "db75981d-07ca-4023-b69b-008231c3f1fd",
     "Content-Type": "application/json",
@@ -27,7 +27,7 @@ api
     });
   })
   .catch((err) => {
-    console.error(err); // log the error if the request fails
+    console.log(err); // log the error if the request fails
   });
 // const initialCards = [
 //   {
