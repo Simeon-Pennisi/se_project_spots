@@ -24,11 +24,20 @@
       <main class="content">
         <!-- use "Page Section" for all sections -->
         <section class="profile page__section">
-          <img
-            class="profile__avatar"
-            src="<%= require('./images/avatar.jpg')%>"
-            alt="user avatar"
-          />
+          <div class="profile__avatar-container">
+            <button class="profile__avatar-btn">
+              <img
+                class="profile__pencil-icon"
+                src="<%= require('./images/edit-profile-pencil-white.svg')%>"
+                alt="pencil icon white"
+              />
+            </button>
+            <img
+              class="profile__avatar"
+              src="<%= require('./images/avatar.jpg')%>"
+              alt="user avatar"
+            />
+          </div>
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>

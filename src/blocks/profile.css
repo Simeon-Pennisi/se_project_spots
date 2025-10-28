@@ -21,12 +21,50 @@
   max-width: 420px;
 }
 
-.profile__avatar {
+.profile__avatar-container {
+  display: flex;
   margin-right: 20px;
   padding: 0;
   border-radius: 8px;
   height: 190px;
   width: 190px;
+}
+
+.profile__avatar {
+  background-size: cover;
+  background-position: center;
+  display: block;
+  border-radius: 8px;
+  /* margin-right: 20px;
+  padding: 0;
+  height: 190px;
+  width: 190px; */
+}
+
+.profile__avatar-btn::after {
+  content: "Edit Avatar";
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #ffffff;
+}
+
+.profile__avatar-btn {
+  position: absolute;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 162px 39px;
+  height: 16px;
+  width: 111px;
+  border-radius: none;
+  /* background-color: green;
+  color: red; */
+  cursor: pointer;
+  z-index: 1;
 }
 
 .profile__column {
