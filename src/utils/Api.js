@@ -30,6 +30,24 @@ class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
+
+  editUserInfo({ name, about }) {
+    return fetch(`${this._baseUrl}/users/me`, {
+      method: "PATCH",
+      headers: this._headers,
+      // Send the data in the body as a JSON string.
+      body: JSON.stringify({
+        name,
+        about,
+      }),
+    }).then((res) => {
+      // handle the response
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
   // other methods for working with the API
 }
 

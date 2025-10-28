@@ -139,11 +139,25 @@ const profileDescriptionElement = document.querySelector(
 
 const editProfileForm = editProfileModal.querySelector(".modal__form");
 
+// submission function
 function submitEditProfileModal(evt) {
   evt.preventDefault();
-  profileNameElement.textContent = editProfileNameInput.value;
-  profileDescriptionElement.textContent = editProfileDescriptionInput.value;
-  closeModal(editProfileModal);
+  api
+    .editUserInfo({
+      name: editProfileNameInput.value,
+      about: editProfileDescriptionInput.value,
+    })
+    .then((updatedUserInfo) => {
+      profileNameElement.textContent = updatedUserInfo.name;
+      profileDescriptionElement.textContent = updatedUserInfo.about;
+      closeModal(editProfileModal);
+    })
+    .catch((err) => {
+      console.error("Error updating user info:", err);
+    });
+  // profileNameElement.textContent = editProfileNameInput.value;
+  // profileDescriptionElement.textContent = editProfileDescriptionInput.value;
+  // closeModal(editProfileModal);
 }
 
 editProfileButton.addEventListener("click", () => {
