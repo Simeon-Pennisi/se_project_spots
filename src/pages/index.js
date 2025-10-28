@@ -32,9 +32,18 @@ const api = new Api({
 
 api
   .getApplicationInfo()
-  .then(([data]) => {
+  .then(([data, userInfo]) => {
     console.log("Cards Data:", data);
-    // You can also process user info here if needed
+    console.log("User Info:", userInfo);
+    const profileNameElement = document.querySelector(".profile__name");
+    const profileDescriptionElement = document.querySelector(
+      ".profile__description"
+    );
+    const profileAvatarElement = document.querySelector(".profile__avatar");
+
+    profileAvatarElement.style.backgroundImage = `url(${userInfo.avatar})`;
+    profileNameElement.textContent = userInfo.name;
+    profileDescriptionElement.textContent = userInfo.about;
     data.forEach((element) => {
       const cardElem = getCardElement(element);
       cardsList.append(cardElem);
