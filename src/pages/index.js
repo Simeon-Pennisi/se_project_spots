@@ -312,3 +312,63 @@ const listenForEscape = () => {
 const stopListeningForEscape = () => {
   document.removeEventListener("keydown", escapeKeyDown);
 };
+
+//edit Avatar avatar modal
+const editAvatarModal = document.querySelector("#avatar-edit-modal");
+
+const editAvatarButton = document.querySelector(".avatar__edit-button");
+
+const editAvatarCloseBtn = editAvatarModal.querySelector(".modal__close-btn");
+
+const editAvatarBackground = editAvatarModal.querySelector(".modal-background");
+
+// const editAvatarNameInput = document.querySelector("#avatar-name-input");
+
+// const editAvatarDescriptionInput = document.querySelector(
+//   "#avatar-description-input"
+// );
+
+// const profileNameElement = document.querySelector(".profile__name");
+
+// const profileDescriptionElement = document.querySelector(
+//   ".profile__description"
+// );
+
+const editAvatarForm = editAvatarModal.querySelector(".modal__form");
+
+editAvatarButton.addEventListener("click", () => {
+  editProfileNameInput.value = profileNameElement.textContent;
+  editProfileDescriptionInput.value = profileDescriptionElement.textContent;
+  openModal(editAvatarModal);
+  resetValidation(
+    editAvatarForm,
+    [editProfileNameInput, editProfileDescriptionInput],
+    settings
+  );
+});
+
+editAvatarCloseBtn.addEventListener("click", () => closeModal(editAvatarModal));
+
+editAvatarBackground.addEventListener("click", () =>
+  closeModal(editAvatarModal)
+);
+
+editAvatarForm.addEventListener("submit", submitEditAvatarModal);
+
+// submission function
+function submitEditAvatarModal(evt) {
+  evt.preventDefault();
+  api
+    .editUserInfo({
+      name: editProfileNameInput.value,
+      about: editProfileDescriptionInput.value,
+    })
+    .then((updatedUserInfo) => {
+      profileNameElement.textContent = updatedUserInfo.name;
+      profileDescriptionElement.textContent = updatedUserInfo.about;
+      closeModal(editProfileModal);
+    })
+    .catch((err) => {
+      console.error("Error updating user info:", err);
+    });
+}

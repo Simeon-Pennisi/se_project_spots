@@ -25,7 +25,7 @@
         <!-- use "Page Section" for all sections -->
         <section class="profile page__section">
           <div class="profile__avatar-container">
-            <button class="profile__avatar-btn">
+            <button class="avatar__edit-button">
               <img
                 class="profile__pencil-icon"
                 src="<%= require('./images/edit-profile-pencil-white.svg')%>"
@@ -218,6 +218,43 @@
             <p class="modal__preview-title"></p>
           </div>
         </div>
+      </div>
+    </div>
+    <!-- insert avatar edit modal -->
+    <div class="modal" id="avatar-edit-modal">
+      <div class="modal-background"></div>
+      <div class="modal__container">
+        <button
+          type="button"
+          class="modal__close-btn"
+          aria-label="close button"
+        ></button>
+        <h3 class="modal__title">Edit avatar</h3>
+        <form class="modal__form" name="Edit avatar">
+          <label for="avatar-name-input" class="modal__label"
+            >Name
+            <input
+              id="avatar-name-input"
+              type="url"
+              class="modal__input"
+              name="Avatar"
+              aria-label="avatar name input"
+              placeholder="avatar url link"
+              required
+            />
+            <span
+              id="avatar-name-input-error"
+              class="modal__input-error"
+            ></span>
+          </label>
+          <button
+            class="modal__save-btn"
+            aria-label="save button"
+            type="submit"
+          >
+            Save
+          </button>
+        </form>
       </div>
     </div>
     <!-- <script src="./scripts/validation.js"></script>

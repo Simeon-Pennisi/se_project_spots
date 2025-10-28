@@ -22,6 +22,7 @@
 }
 
 .profile__avatar-container {
+  position: relative;
   display: flex;
   margin-right: 20px;
   padding: 0;
@@ -35,13 +36,40 @@
   background-position: center;
   display: block;
   border-radius: 8px;
+  /* z-index: 2; */
   /* margin-right: 20px;
   padding: 0;
   height: 190px;
   width: 190px; */
 }
 
-.profile__avatar-btn::after {
+.profile__avatar:hover {
+  /* color: #000000;
+  opacity: 0.5;
+  cursor: pointer; */
+  z-index: 0;
+}
+
+/* change profile__avatar-btn to  avatar__edit-button*/
+.avatar__edit-button {
+  position: absolute;
+  background: none;
+  border: none;
+  padding: 162px 39px;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  /* height: 16px;
+  width: 111px; */
+  border-radius: none;
+  /* background-color: green;
+  color: red; */
+  cursor: pointer;
+  z-index: 1;
+  /* visibility: hidden; */
+}
+
+.avatar__edit-button::after {
   content: "Edit Avatar";
   font-family: Poppins;
   font-weight: 500;
@@ -52,20 +80,13 @@
   color: #ffffff;
 }
 
-.profile__avatar-btn {
-  position: absolute;
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 162px 39px;
-  height: 16px;
-  width: 111px;
-  border-radius: none;
-  /* background-color: green;
-  color: red; */
+/* temporarily disabled to work on avatar modal
+.avatar__edit-button:hover {
+  background-color: #000000;
+  opacity: 0.5;
   cursor: pointer;
-  z-index: 1;
-}
+  visibility: visible;
+} */
 
 .profile__column {
   display: flex;
