@@ -322,7 +322,14 @@ const editAvatarCloseBtn = editAvatarModal.querySelector(".modal__close-btn");
 
 const editAvatarBackground = editAvatarModal.querySelector(".modal-background");
 
-// const editAvatarNameInput = document.querySelector("#avatar-name-input");
+const newAvatarSaveBtn = editAvatarModal.querySelector(".modal__save-btn");
+
+// const editAvatarUrlInput = document.querySelector("#avatar-url-input");
+const editAvatarUrlInput = editAvatarModal.querySelector("#avatar-url-input");
+
+const editAvatarForm = editAvatarModal.querySelector(".modal__form");
+
+const profileAvatarElement = document.querySelector(".profile__avatar");
 
 // const editAvatarDescriptionInput = document.querySelector(
 //   "#avatar-description-input"
@@ -334,17 +341,15 @@ const editAvatarBackground = editAvatarModal.querySelector(".modal-background");
 //   ".profile__description"
 // );
 
-const editAvatarForm = editAvatarModal.querySelector(".modal__form");
-
 editAvatarButton.addEventListener("click", () => {
-  editProfileNameInput.value = profileNameElement.textContent;
-  editProfileDescriptionInput.value = profileDescriptionElement.textContent;
+  // editProfileNameInput.value = profileNameElement.textContent;
+  // editProfileDescriptionInput.value = profileDescriptionElement.textContent;
+  editAvatarUrlInput.value = profileAvatarElement.textContent;
+  // .slice(4, -1)
+  // .replace(/"/g, ""); // Extract URL from background-image style
+
   openModal(editAvatarModal);
-  resetValidation(
-    editAvatarForm,
-    [editProfileNameInput, editProfileDescriptionInput],
-    settings
-  );
+  resetValidation(editAvatarForm, [editAvatarUrlInput], settings);
 });
 
 editAvatarCloseBtn.addEventListener("click", () => closeModal(editAvatarModal));
@@ -359,14 +364,14 @@ editAvatarForm.addEventListener("submit", submitEditAvatarModal);
 function submitEditAvatarModal(evt) {
   evt.preventDefault();
   api
-    .editUserInfo({
-      name: editProfileNameInput.value,
-      about: editProfileDescriptionInput.value,
+    .editUserAvatar({
+      avatar: editAvatarUrlInput.value,
     })
-    .then((updatedUserInfo) => {
-      profileNameElement.textContent = updatedUserInfo.name;
-      profileDescriptionElement.textContent = updatedUserInfo.about;
-      closeModal(editProfileModal);
+    .then((updatedAvatarInfo) => {
+      console.log("Updated avatar info:", editAvatarUrlInput.value);
+      console.log("The Updated avatar info:", updatedAvatarInfo);
+      profileAvatarElement.style.backgroundImage = `url(${updatedAvatarInfo.avatar})`;
+      closeModal(editAvatarModal);
     })
     .catch((err) => {
       console.error("Error updating user info:", err);
