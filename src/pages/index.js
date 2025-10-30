@@ -41,7 +41,8 @@ api
     );
     const profileAvatarElement = document.querySelector(".profile__avatar");
 
-    profileAvatarElement.style.backgroundImage = `url(${userInfo.avatar})`;
+    // set the img `src` so the <img class="profile__avatar" /> updates correctly
+    profileAvatarElement.src = userInfo.avatar;
     profileNameElement.textContent = userInfo.name;
     profileDescriptionElement.textContent = userInfo.about;
     data.forEach((element) => {
@@ -342,11 +343,8 @@ const profileAvatarElement = document.querySelector(".profile__avatar");
 // );
 
 editAvatarButton.addEventListener("click", () => {
-  // editProfileNameInput.value = profileNameElement.textContent;
-  // editProfileDescriptionInput.value = profileDescriptionElement.textContent;
-  editAvatarUrlInput.value = profileAvatarElement.textContent;
-  // .slice(4, -1)
-  // .replace(/"/g, ""); // Extract URL from background-image style
+  // Use the img `src` value directly for the edit form input
+  editAvatarUrlInput.value = profileAvatarElement.src;
 
   openModal(editAvatarModal);
   resetValidation(editAvatarForm, [editAvatarUrlInput], settings);
@@ -370,7 +368,8 @@ function submitEditAvatarModal(evt) {
     .then((updatedAvatarInfo) => {
       console.log("Updated avatar info:", editAvatarUrlInput.value);
       console.log("The Updated avatar info:", updatedAvatarInfo);
-      profileAvatarElement.style.backgroundImage = `url(${updatedAvatarInfo.avatar})`;
+      // update the <img> src so the DOM image updates immediately
+      profileAvatarElement.src = updatedAvatarInfo.avatar;
       closeModal(editAvatarModal);
     })
     .catch((err) => {
