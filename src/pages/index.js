@@ -261,6 +261,8 @@ function getCardElement(data) {
 
   const cardDeleteButton = cardElement.querySelector(".card__delete-button");
 
+  // const cardDeleteButton = document.querySelector(".card__delete-button");
+
   cardDeleteButton.addEventListener("click", () => {
     // cardElement.remove();
     openModal(deleteImageModal);
@@ -383,15 +385,17 @@ const deleteImageModal = document.querySelector("#delete-image-modal");
 
 const deleteImageButton = document.querySelector(".modal__delete-btn");
 
-const deleteImageCloseBtn = newPostModal.querySelector(".modal__close-btn");
+const deleteImageCloseBtn = deleteImageModal.querySelector(".modal__close-btn");
 
-const deleteImageCancelBtn = newPostModal.querySelector(".modal__cancel-btn");
+const deleteImageCancelBtn =
+  deleteImageModal.querySelector(".modal__cancel-btn");
 
-const deleteImageBackground = newPostModal.querySelector(".modal-background");
+const deleteImageBackground =
+  deleteImageModal.querySelector(".modal-background");
 
 deleteImageButton.addEventListener("click", () => {
   console.log("Delete confirmed");
-  cardElement.remove();
+  // cardElement.remove();
 });
 
 deleteImageCancelBtn.addEventListener("click", () =>
