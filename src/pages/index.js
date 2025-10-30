@@ -262,7 +262,8 @@ function getCardElement(data) {
   const cardDeleteButton = cardElement.querySelector(".card__delete-button");
 
   cardDeleteButton.addEventListener("click", () => {
-    cardElement.remove();
+    // cardElement.remove();
+    openModal(deleteImageModal);
   });
 
   cardImageEl.addEventListener("click", () => {
@@ -376,3 +377,31 @@ function submitEditAvatarModal(evt) {
       console.error("Error updating user info:", err);
     });
 }
+
+// delete image modal deleteImage
+const deleteImageModal = document.querySelector("#delete-image-modal");
+
+const deleteImageButton = document.querySelector(".modal__delete-btn");
+
+const deleteImageCloseBtn = newPostModal.querySelector(".modal__close-btn");
+
+const deleteImageCancelBtn = newPostModal.querySelector(".modal__cancel-btn");
+
+const deleteImageBackground = newPostModal.querySelector(".modal-background");
+
+deleteImageButton.addEventListener("click", () => {
+  console.log("Delete confirmed");
+  cardElement.remove();
+});
+
+deleteImageCancelBtn.addEventListener("click", () =>
+  closeModal(deleteImageModal)
+);
+
+deleteImageCloseBtn.addEventListener("click", () =>
+  closeModal(deleteImageModal)
+);
+
+deleteImageBackground.addEventListener("click", () =>
+  closeModal(deleteImageModal)
+);
