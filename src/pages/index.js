@@ -265,7 +265,7 @@ function getCardElement(data) {
 
   cardDeleteButton.addEventListener("click", () => {
     // cardElement.remove();
-    openModal(deleteImageModal);
+    openModal(deleteCardModal);
   });
 
   cardImageEl.addEventListener("click", () => {
@@ -381,31 +381,27 @@ function submitEditAvatarModal(evt) {
 }
 
 // delete image modal deleteImage
-const deleteImageModal = document.querySelector("#delete-image-modal");
+const deleteCardModal = document.querySelector("#delete-card-modal");
 
-const deleteImageButton = document.querySelector(".modal__delete-btn");
+const deleteCardButton = document.querySelector(".modal__delete-btn");
 
-const deleteImageCloseBtn = deleteImageModal.querySelector(".modal__close-btn");
+const deleteCardCloseBtn = deleteCardModal.querySelector(".modal__close-btn");
 
-const deleteImageCancelBtn =
-  deleteImageModal.querySelector(".modal__cancel-btn");
+const deleteCardCancelBtn = deleteCardModal.querySelector(".modal__cancel-btn");
 
-const deleteImageBackground =
-  deleteImageModal.querySelector(".modal-background");
+const deleteCardBackground = deleteCardModal.querySelector(".modal-background");
 
-deleteImageButton.addEventListener("click", () => {
+deleteCardButton.addEventListener("click", () => {
   console.log("Delete confirmed");
   // cardElement.remove();
 });
 
-deleteImageCancelBtn.addEventListener("click", () =>
-  closeModal(deleteImageModal)
+deleteCardCancelBtn.addEventListener("click", () =>
+  closeModal(deleteCardModal)
 );
 
-deleteImageCloseBtn.addEventListener("click", () =>
-  closeModal(deleteImageModal)
-);
+deleteCardCloseBtn.addEventListener("click", () => closeModal(deleteCardModal));
 
-deleteImageBackground.addEventListener("click", () =>
-  closeModal(deleteImageModal)
+deleteCardBackground.addEventListener("click", () =>
+  closeModal(deleteCardModal)
 );
