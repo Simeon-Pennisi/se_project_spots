@@ -404,7 +404,7 @@ function submitEditAvatarModal(evt) {
     });
 }
 
-// delete image modal deleteImage
+// delete card modal
 const deleteCardModal = document.querySelector("#delete-card-modal");
 
 const deleteCardButton = deleteCardModal.querySelector(".modal__delete-btn");
@@ -446,6 +446,78 @@ function handleDeleteSubmit() {
     .catch(console.error);
 }
 
-// deleteForm.addEventListener("submit", handleDeleteSubmit);
+deleteCardModal.addEventListener("submit", handleDeleteSubmit);
 
-deleteCardButton.addEventListener("click", handleDeleteSubmit);
+// deleteCardButton.addEventListener("click", handleDeleteSubmit);
+
+// add card modal
+// const addCardModal = document.querySelector("#post-new-modal");
+
+// const addCardButton = document.querySelector(".profile__add-button");
+
+// const addCardCloseBtn = addCardModal.querySelector(".modal__close-btn");
+
+// const addCardBackground = addCardModal.querySelector(".modal-background");
+
+// const addCardSaveBtn = addCardModal.querySelector(".modal__save-btn");
+
+// const addCardImageLinkInput = document.querySelector(
+//   "#new-post-image-link-input"
+// );
+// const addCardImageCaptionInput = document.querySelector(
+//   "#new-post-caption-input"
+// );
+
+// const addCardForm = addCardModal.querySelector(".modal__form");
+
+// addCardButton.addEventListener("click", () => {
+//   openModal(addCardModal);
+// });
+
+// addCardCloseBtn.addEventListener("click", () => closeModal(addCardModal));
+
+// addCardBackground.addEventListener("click", () => closeModal(addCardModal));
+
+// function submitAddCardModal(evt) {
+//   evt.preventDefault();
+
+//   const cardInputs = {
+//     link: addCardImageLinkInput.value,
+//     name: addCardImageCaptionInput.value,
+//   };
+
+//   const newCard = getCardElement(cardInputs);
+
+//   cardsList.prepend(newCard);
+
+//   evt.target.reset();
+
+//   toggleButtonState(
+//     [addCardImageLinkInput, addCardImageCaptionInput],
+//     evt.submitter,
+//     settings
+//   );
+
+//   closeModal(addCardModal);
+// }
+
+// addCardForm.addEventListener("submit", submitAddCardModal);
+
+function addCard(evt) {
+  evt.preventDefault();
+  api
+    .addNewCard({
+      name: newPostImageCaptionInput.value,
+      link: newPostImageLinkInput.value,
+    })
+    .then((data) => {
+      console.log(data); // log the received data
+      data.forEach((element) => {
+        const cardElem = getCardElement(element);
+        cardsList.append(cardElem);
+      });
+    })
+    .catch((err) => {
+      console.error(err); // log the error if the request fails
+    });
+}
