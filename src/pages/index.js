@@ -249,13 +249,31 @@ function getCardElement(data) {
   cardImageEl.alt = data.name;
   cardTitleEl.textContent = data.name;
 
+  // const cardLikeButton = cardElement.querySelector(
+  //   ".card__content-like-button"
+  // );
+
+  // cardLikeButton.addEventListener("click", () => {
+  //   cardLikeButton.classList.toggle("card__content-like-button_active");
+  // });
+
+  // card like and unlike functionality
   const cardLikeButton = cardElement.querySelector(
     ".card__content-like-button"
   );
 
-  cardLikeButton.addEventListener("click", () => {
-    cardLikeButton.classList.toggle("card__content-like-button_active");
-  });
+  cardLikeButton.addEventListener("click", toggleCardLike);
+
+  function toggleCardLike() {
+    // Implement like/unlike functionality here
+    if (cardLikeButton.classList.contains("card__content-like-button_active")) {
+      // Unlike the card
+      cardLikeButton.classList.remove("card__content-like-button_active");
+    } else {
+      // Like the card
+      cardLikeButton.classList.add("card__content-like-button_active");
+    }
+  }
 
   const cardDeleteButton = cardElement.querySelector(".card__delete-button");
   // const cardDeleteButton = document.querySelector(".card__delete-button");
