@@ -518,6 +518,8 @@ deleteCardButton.addEventListener("click", handleDeleteSubmit);
 
 function addCard(evt) {
   evt.preventDefault();
+  // change text content to "Saving... "
+  newPostSaveBtn.textContent = "Saving...";
   api
     .addNewCard({
       name: newPostImageCaptionInput.value,
@@ -543,5 +545,9 @@ function addCard(evt) {
     })
     .catch((err) => {
       console.error(err); // log the error if the request fails
+    })
+    .finally(() => {
+      // change text content back to "Save"
+      newPostSaveBtn.textContent = "Save";
     });
 }
