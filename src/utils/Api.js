@@ -67,7 +67,9 @@ class Api {
   addNewCard({ name, link }) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
+      // Add Content-Type to the request headers after the authorization token
       headers: this._headers,
+      // "Content-Type": "application/json"
       body: JSON.stringify({
         name,
         link,

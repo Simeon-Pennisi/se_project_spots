@@ -214,30 +214,25 @@ newPostCloseBtn.addEventListener("click", () => closeModal(newPostModal));
 
 newPostBackground.addEventListener("click", () => closeModal(newPostModal));
 
-function submitNewPostModal(evt) {
-  evt.preventDefault();
+// function submitNewPostModal(evt) {
+//   evt.preventDefault();
+//   const cardInputs = {
+//     link: newPostImageLinkInput.value,
+//     name: newPostImageCaptionInput.value,
+//   };
+//   const newCard = getCardElement(cardInputs);
+//   cardsList.prepend(newCard);
+//   evt.target.reset();
+//   toggleButtonState(
+//     [newPostImageLinkInput, newPostImageCaptionInput],
+//     evt.submitter,
+//     settings
+//   );
+//   closeModal(newPostModal);
+// }
 
-  const cardInputs = {
-    link: newPostImageLinkInput.value,
-    name: newPostImageCaptionInput.value,
-  };
-
-  const newCard = getCardElement(cardInputs);
-
-  cardsList.prepend(newCard);
-
-  evt.target.reset();
-
-  toggleButtonState(
-    [newPostImageLinkInput, newPostImageCaptionInput],
-    evt.submitter,
-    settings
-  );
-
-  closeModal(newPostModal);
-}
-
-newPostForm.addEventListener("submit", submitNewPostModal);
+// newPostForm.addEventListener("submit", submitNewPostModal);
+newPostForm.addEventListener("submit", addCard);
 
 let selectedCard;
 let selectedCardId;
@@ -278,7 +273,7 @@ function getCardElement(data) {
     openModal(modalPreview);
   });
 
-  const deleteCardModal = document.querySelector("#delete-card-modal");
+  // const deleteCardModal = document.querySelector("#delete-card-modal");
 
   const deleteCardButton = deleteCardModal.querySelector(".modal__delete-btn");
 
@@ -446,9 +441,9 @@ function handleDeleteSubmit() {
     .catch(console.error);
 }
 
-deleteCardModal.addEventListener("submit", handleDeleteSubmit);
+// deleteCardModal.addEventListener("submit", handleDeleteSubmit);
 
-// deleteCardButton.addEventListener("click", handleDeleteSubmit);
+deleteCardButton.addEventListener("click", handleDeleteSubmit);
 
 // add card modal
 // const addCardModal = document.querySelector("#post-new-modal");
@@ -511,11 +506,22 @@ function addCard(evt) {
       link: newPostImageLinkInput.value,
     })
     .then((data) => {
-      console.log(data); // log the received data
-      data.forEach((element) => {
-        const cardElem = getCardElement(element);
-        cardsList.append(cardElem);
-      });
+      console.log("This is the card data", data); // log the received data
+      // data.forEach((element) => {
+      //   const cardElem = getCardElement(element);
+      //   console.log("This is the card element", cardElem);
+      //   cardsList.append(cardElem);
+      // });
+      const newCard = getCardElement(data);
+      console.log("This is the card data element", data);
+      cardsList.prepend(newCard);
+      evt.target.reset();
+      toggleButtonState(
+        [newPostImageLinkInput, newPostImageCaptionInput],
+        evt.submitter,
+        settings
+      );
+      closeModal(newPostModal);
     })
     .catch((err) => {
       console.error(err); // log the error if the request fails
