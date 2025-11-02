@@ -143,6 +143,7 @@ const editProfileForm = editProfileModal.querySelector(".modal__form");
 // submission function
 function submitEditProfileModal(evt) {
   evt.preventDefault();
+  modalSaveBtn.textContent = "Saving...";
   api
     .editUserInfo({
       name: editProfileNameInput.value,
@@ -155,6 +156,9 @@ function submitEditProfileModal(evt) {
     })
     .catch((err) => {
       console.error("Error updating user info:", err);
+    })
+    .finally(() => {
+      modalSaveBtn.textContent = "Save";
     });
   // profileNameElement.textContent = editProfileNameInput.value;
   // profileDescriptionElement.textContent = editProfileDescriptionInput.value;
@@ -191,7 +195,7 @@ const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 
 const newPostBackground = newPostModal.querySelector(".modal-background");
 
-const newPostSaveBtn = newPostModal.querySelector(".modal__save-btn");
+const modalSaveBtn = newPostModal.querySelector(".modal__save-btn");
 
 const cardImageElement = document.querySelector(".card__image");
 
@@ -401,6 +405,7 @@ editAvatarForm.addEventListener("submit", submitEditAvatarModal);
 // submission function
 function submitEditAvatarModal(evt) {
   evt.preventDefault();
+  newAvatarSaveBtn.textContent = "Saving...";
   api
     .editUserAvatar({
       avatar: editAvatarUrlInput.value,
@@ -414,6 +419,9 @@ function submitEditAvatarModal(evt) {
     })
     .catch((err) => {
       console.error("Error updating user info:", err);
+    })
+    .finally(() => {
+      newAvatarSaveBtn.textContent = "Save";
     });
 }
 
@@ -448,6 +456,7 @@ const deleteCardConfirmationModal = document.querySelector(
 );
 
 function handleDeleteSubmit() {
+  deleteCardButton.textContent = "Deleting...";
   api
     .deleteCard(selectedCardId) // pass the ID the the api function
     .then(() => {
@@ -456,7 +465,10 @@ function handleDeleteSubmit() {
       // close the modal
       closeModal(deleteCardModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      deleteCardButton.textContent = "Delete";
+    });
 }
 
 // deleteCardModal.addEventListener("submit", handleDeleteSubmit);
@@ -519,7 +531,7 @@ deleteCardButton.addEventListener("click", handleDeleteSubmit);
 function addCard(evt) {
   evt.preventDefault();
   // change text content to "Saving... "
-  newPostSaveBtn.textContent = "Saving...";
+  modalSaveBtn.textContent = "Saving...";
   api
     .addNewCard({
       name: newPostImageCaptionInput.value,
@@ -548,6 +560,6 @@ function addCard(evt) {
     })
     .finally(() => {
       // change text content back to "Save"
-      newPostSaveBtn.textContent = "Save";
+      modalSaveBtn.textContent = "Save";
     });
 }
