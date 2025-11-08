@@ -2,7 +2,6 @@ class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
     this._headers = headers;
-    // constructor body
   }
 
   getApplicationInfo() {
@@ -74,7 +73,6 @@ class Api {
       method: "POST",
       // Add Content-Type to the request headers after the authorization token
       headers: this._headers,
-      // "Content-Type": "application/json"
       body: JSON.stringify({
         name,
         link,
@@ -88,7 +86,6 @@ class Api {
   }
 
   deleteCard(cardId) {
-    console.log("Attempting to delete card with ID:", cardId);
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
@@ -124,8 +121,6 @@ class Api {
       return Promise.reject(`Error: ${res.status}`);
     });
   }
-
-  // other methods for working with the API
 }
 
 export default Api;
