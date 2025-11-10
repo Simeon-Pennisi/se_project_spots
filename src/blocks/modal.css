@@ -178,9 +178,6 @@
   line-height: 100%;
 }
 
-.modal__form {
-}
-
 .modal__form:hover {
   cursor: pointer;
 }
