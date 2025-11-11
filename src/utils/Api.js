@@ -21,13 +21,14 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  getInitialCards({ name, link }) {
+  // getInitialCards({ name, link }) {
+  getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       method: "GET",
       headers: this._headers,
       body: JSON.stringify({
-        name,
-        link,
+        // name,
+        // link,
       }),
     }).then(this._checkResponse);
   }
