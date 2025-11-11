@@ -26,10 +26,10 @@ class Api {
     return fetch(`${this._baseUrl}/cards`, {
       method: "GET",
       headers: this._headers,
-      body: JSON.stringify({
-        // name,
-        // link,
-      }),
+      // body: JSON.stringify({
+      // name,
+      // link,
+      // }),
     }).then(this._checkResponse);
   }
 
