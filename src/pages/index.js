@@ -105,6 +105,15 @@ function closeModal(modal) {
   stopListeningForEscape();
 }
 
+function toggleLikeButton(likeButton) {
+  if (likeButton.classList.contains("card__content-like-button_active")) {
+    likeButton.classList.remove("card__content-like-button_active");
+  } else {
+    likeButton.classList.add("card__content-like-button_active");
+  }
+  // likeButton.classList.contains("card__content-like-button_active");
+}
+
 function escapeKeyDown(evt) {
   if (evt.key === "Escape") {
     const modal = document.querySelector(".modal_is-opened");
@@ -132,9 +141,15 @@ function getCardElement(data) {
   const cardLikeButton = cardElement.querySelector(
     ".card__content-like-button"
   );
-  cardLikeButton.addEventListener("click", () => {
-    cardLikeButton.classList.toggle("card__content-like-button_active");
-  });
+
+  // set initial like state based on isLiked value from API
+
+  // cardLikeButton.addEventListener("click", () => {
+  //   cardLikeButton.classList.toggle("card__content-like-button_active");
+  // });
+  cardLikeButton.addEventListener("click", () =>
+    handleCardLike(cardElement, data._id || data)
+  );
 
   const cardDeleteButton = cardElement.querySelector(".card__delete-button");
   cardDeleteButton.addEventListener("click", () =>
@@ -155,6 +170,33 @@ function getCardElement(data) {
     selectedCardId = id;
     openModal(deleteCardModal);
   }
+
+  function handleCardLike(cardEl, id) {
+    selectedCard = cardEl;
+    selectedCardId = id;
+    // check current like state and pass it to toggleCardLike
+    const isCurrentlyLiked = cardLikeButton.classList.contains(
+      "card__content-like-button_active"
+    );
+    api
+      .toggleCardLike(selectedCardId, isCurrentlyLiked)
+      .then(() => {
+        cardLikeButton.classList.toggle("card__content-like-button_active");
+      })
+      .catch(console.error);
+  }
+
+  // set card__content-like-button_active if isLiked is true
+  // function handleInitialIsLiked(isLiked) {
+  //   if (isLiked) {
+  //     cardLikeButton.classList.add("card__content-like-button_active");
+  //   } else {
+  //     cardLikeButton.classList.remove("card__content-like-button_active");
+  //   }
+  // }
+
+  // handleInitialIsLiked(api.checkIsLiked(data._id || data));
+  // handleInitialIsLiked(data._id || data, cardLikeButton);
 }
 
 // ===== Handlers =====
@@ -296,7 +338,6 @@ function initApp() {
 
       // populate cards
       cards.forEach((c) => {
-        // getCardElement does not exist yet
         const el = getCardElement(c);
         cardsList.append(el);
       });

@@ -21,15 +21,10 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  // getInitialCards({ name, link }) {
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       method: "GET",
       headers: this._headers,
-      // body: JSON.stringify({
-      // name,
-      // link,
-      // }),
     }).then(this._checkResponse);
   }
 
@@ -76,18 +71,34 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  likeCard(cardId) {
+  // create public method to return value of isLiked
+  checkIsLiked(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+      method: "GET",
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
+
+  _likeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "PUT",
       headers: this._headers,
     }).then(this._checkResponse);
   }
 
-  unlikeCard(cardId) {
+  _unlikeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
       headers: this._headers,
     }).then(this._checkResponse);
+  }
+
+  toggleCardLike(cardId, isLiked) {
+    if (isLiked) {
+      return this._unlikeCard(cardId);
+    } else if (!isLiked) {
+      return this._likeCard(cardId);
+    }
   }
 }
 
