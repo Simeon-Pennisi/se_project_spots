@@ -112,7 +112,6 @@ function toggleLikeButton(likeButton) {
   } else {
     likeButton.classList.add("card__content-like-button_active");
   }
-  // likeButton.classList.contains("card__content-like-button_active");
 }
 
 function escapeKeyDown(evt) {
@@ -141,11 +140,7 @@ function getCardElement(data) {
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
   cardTitleEl.textContent = data.name;
-  // set like button status based on isLiked
 
-  // cardLikeButton.addEventListener("click", () => {
-  //   cardLikeButton.classList.toggle("card__content-like-button_active");
-  // });
   cardLikeButton.addEventListener("click", () =>
     handleCardLike(cardElement, data._id || data)
   );
@@ -193,18 +188,7 @@ function getCardElement(data) {
 
   // set initial like state from card data
   const isLiked = data.isLiked || false;
-  console.log("Card data:", data);
-  console.log("Current user ID:", currentUserId);
-  console.log("Is liked:", isLiked);
   setInitialLikeState(isLiked);
-  // set card__content-like-button_active if isLiked is true
-  // function handleInitialIsLiked(isLiked) {
-  //   if (isLiked) {
-  //     cardLikeButton.classList.add("card__content-like-button_active");
-  //   } else {
-  //     cardLikeButton.classList.remove("card__content-like-button_active");
-  //   }
-  // }
 
   return cardElement;
 }
