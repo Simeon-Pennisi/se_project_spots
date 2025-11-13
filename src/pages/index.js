@@ -92,6 +92,7 @@ const deleteCardBackground = deleteCardModal.querySelector(".modal-background");
 
 let selectedCard;
 let selectedCardId;
+let currentUserId = null;
 
 // ===== Utilities =====
 function openModal(modal) {
@@ -133,16 +134,14 @@ function getCardElement(data) {
     .cloneNode(true);
   const cardTitleEl = cardElement.querySelector(".card__content-title");
   const cardImageEl = cardElement.querySelector(".card__image");
-
-  cardImageEl.src = data.link;
-  cardImageEl.alt = data.name;
-  cardTitleEl.textContent = data.name;
-
   const cardLikeButton = cardElement.querySelector(
     ".card__content-like-button"
   );
 
-  // set initial like state based on isLiked value from API
+  cardImageEl.src = data.link;
+  cardImageEl.alt = data.name;
+  cardTitleEl.textContent = data.name;
+  // set like button status based on isLiked
 
   // cardLikeButton.addEventListener("click", () => {
   //   cardLikeButton.classList.toggle("card__content-like-button_active");
@@ -162,8 +161,6 @@ function getCardElement(data) {
     modalPreviewTitle.textContent = data.name;
     openModal(modalPreview);
   });
-
-  return cardElement;
 
   function handleDeleteCard(cardEl, id) {
     selectedCard = cardEl;
@@ -186,6 +183,20 @@ function getCardElement(data) {
       .catch(console.error);
   }
 
+  function setInitialLikeState(isLiked) {
+    if (isLiked) {
+      cardLikeButton.classList.add("card__content-like-button_active");
+    } else {
+      cardLikeButton.classList.remove("card__content-like-button_active");
+    }
+  }
+
+  // set initial like state from card data
+  const isLiked = data.isLiked || false;
+  console.log("Card data:", data);
+  console.log("Current user ID:", currentUserId);
+  console.log("Is liked:", isLiked);
+  setInitialLikeState(isLiked);
   // set card__content-like-button_active if isLiked is true
   // function handleInitialIsLiked(isLiked) {
   //   if (isLiked) {
@@ -195,8 +206,7 @@ function getCardElement(data) {
   //   }
   // }
 
-  // handleInitialIsLiked(api.checkIsLiked(data._id || data));
-  // handleInitialIsLiked(data._id || data, cardLikeButton);
+  return cardElement;
 }
 
 // ===== Handlers =====
@@ -331,6 +341,8 @@ function initApp() {
   api
     .getApplicationInfo()
     .then(([cards, userInfo]) => {
+      // store current user id for later comparisons (likes)
+      currentUserId = userInfo._id;
       // populate profile
       profileAvatarElement.src = userInfo.avatar;
       profileNameElement.textContent = userInfo.name;
