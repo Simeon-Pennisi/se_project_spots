@@ -301,8 +301,8 @@ modalPreviewBackground.addEventListener("click", () =>
 editAvatarButton.addEventListener("click", () => {
   editAvatarUrlInput.value = profileAvatarElement.src || "";
   openModal(editAvatarModal);
-  resetValidation(editAvatarForm, [editAvatarUrlInput], settings);
 });
+
 editAvatarCloseBtn.addEventListener("click", () => closeModal(editAvatarModal));
 editAvatarBackground.addEventListener("click", () =>
   closeModal(editAvatarModal)
