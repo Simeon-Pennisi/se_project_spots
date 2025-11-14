@@ -222,6 +222,9 @@ function submitEditAvatarModal(evt) {
     .editUserAvatar({ avatar: editAvatarUrlInput.value })
     .then((updatedAvatarInfo) => {
       profileAvatarElement.src = updatedAvatarInfo.avatar;
+      evt.target.reset();
+      toggleButtonState([editAvatarUrlInput], evt.submitter, settings);
+      console.log("The current button state is {}");
       closeModal(editAvatarModal);
     })
     .catch((err) => console.error("Error updating avatar:", err))
