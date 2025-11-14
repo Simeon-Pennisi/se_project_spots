@@ -84,7 +84,7 @@ const editAvatarUrlInput = editAvatarModal.querySelector("#avatar-url-input");
 const editAvatarForm = editAvatarModal.querySelector(".modal__form");
 
 // Delete card modal
-const deleteCardModal = document.querySelector("#delete-card-modal");
+const deleteCardModal = document.querySelector("#modal__container-delete-card");
 const deleteCardButton = deleteCardModal.querySelector(".modal__delete-btn");
 const deleteCardCloseBtn = deleteCardModal.querySelector(".modal__close-btn");
 const deleteCardCancelBtn = deleteCardModal.querySelector(".modal__cancel-btn");
