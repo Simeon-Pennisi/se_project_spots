@@ -299,7 +299,6 @@ modalPreviewBackground.addEventListener("click", () =>
 );
 
 editAvatarButton.addEventListener("click", () => {
-  editAvatarUrlInput.value = profileAvatarElement.src || "";
   openModal(editAvatarModal);
 });
 
