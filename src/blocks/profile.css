@@ -8,7 +8,7 @@
 .profile__name {
   color: #212121;
   margin: 0;
-  padding: 0;
+  padding: 12px 0 0 0;
   font-family: "Poppins", Arial, sans-serif;
   font-weight: 500;
   font-size: 32px;
@@ -24,7 +24,8 @@
 .profile__avatar-container {
   position: relative;
   display: flex;
-  margin-right: 20px;
+  /* margin-right: 20px; */
+  margin: auto;
   padding: 0;
   border-radius: 8px;
   height: 190px;
@@ -36,6 +37,8 @@
   background-position: center;
   display: block;
   border-radius: 8px;
+  padding: 0;
+  margin: 0;
 }
 
 /* change profile__avatar-btn to  avatar__edit-button*/
@@ -45,8 +48,8 @@
   border: none;
   padding: 162px 39px 16px 39px;
   margin: 0;
-  border-radius: none;
-  background-color: green;
+  /* border-radius: none;
+  background-color: green; */
   cursor: pointer;
   z-index: 1;
   opacity: 0;
@@ -160,9 +163,12 @@
 
   .profile__avatar {
     margin-right: 0;
-    padding-bottom: 12px;
     width: 80px;
     height: 80px;
+    /* padding-bottom: 12px; */
+    /* margin-bottom: 12px; */
+    /* align-items: center; */
+    /* justify-content: center; */
   }
 
   .profile__description {
@@ -178,5 +184,20 @@
   .profile__add-button {
     margin: auto;
     width: 288px;
+  }
+
+  .avatar__edit-button {
+    padding: 0;
+    /* margin: 0; */
+    height: 80px;
+    width: 80px;
+    /* margin: auto; */
+    /* padding-bottom: 12px; */
+    /* margin-bottom: 12px; */
+  }
+
+  .profile__avatar-container {
+    height: 80px;
+    width: 80px;
   }
 }
