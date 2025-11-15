@@ -25,7 +25,7 @@
   position: relative;
   display: flex;
   /* margin-right: 20px; */
-  margin: auto;
+  /* margin: auto; */
   padding: 0;
   border-radius: 8px;
   height: 190px;
@@ -39,6 +39,8 @@
   border-radius: 8px;
   padding: 0;
   margin: 0;
+  height: 190px;
+  width: 190px;
 }
 
 /* change profile__avatar-btn to  avatar__edit-button*/
@@ -81,7 +83,9 @@
   display: flex;
   flex-direction: column;
   margin: 0;
-  padding: 0;
+  /* padding: 0; */
+  padding-left: 20px;
+  /* margin-left: 20px; */
 }
 
 .profile__description {
@@ -197,6 +201,7 @@
   }
 
   .profile__avatar-container {
+    margin: auto;
     height: 80px;
     width: 80px;
   }
