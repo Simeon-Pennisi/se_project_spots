@@ -8,7 +8,6 @@
       content="social website for users to share photos"
     />
     <meta name="author" content="Simeon Pennisi" />
-    <!-- <link rel="stylesheet" href="pages/index.css" /> -->
     <link rel="shortcut icon" href="favicon.ico" />
     <title>Spots</title>
   </head>
@@ -22,7 +21,6 @@
         />
       </header>
       <main class="content">
-        <!-- use "Page Section" for all sections -->
         <section class="profile page__section">
           <div class="profile__avatar-container">
             <button class="avatar__edit-button">
@@ -67,10 +65,8 @@
           </button>
         </section>
       </main>
-      <!-- card section -->
       <section class="cards page__section">
         <ul class="cards__list">
-          <!-- card template -->
           <template id="card-template">
             <li class="card">
               <button
@@ -94,7 +90,6 @@
       <footer class="footer page__section">
         <p class="footer__copywrite">2025 &copy; Spots</p>
       </footer>
-      <!-- Edit Profile Modal -->
       <div class="modal" id="profile-edit-modal">
         <div class="modal-background"></div>
         <div class="modal__container">
@@ -105,7 +100,6 @@
           ></button>
           <h3 class="modal__title">Edit Profile</h3>
           <form class="modal__form" name="Edit Profile">
-            <!-- "for" attribute of label should match "id" attribute of input -->
             <label for="profile-name-input" class="modal__label"
               >Name
               <input
@@ -150,7 +144,6 @@
           </form>
         </div>
       </div>
-      <!-- New Post Modal -->
       <div class="modal" id="post-new-modal">
         <div class="modal-background"></div>
         <div class="modal__container">
@@ -161,7 +154,6 @@
           ></button>
           <h3 class="modal__title">New Post</h3>
           <form class="modal__form" name="New Post">
-            <!-- "for" attribute of label should match "id" attribute of input -->
             <label for="new-post-image-link-input" class="modal__label"
               >Image link
               <input
@@ -204,7 +196,6 @@
           </form>
         </div>
       </div>
-      <!-- Preview modal -->
       <div class="modal" id="preview-modal">
         <div class="modal-background"></div>
         <div class="modal__container-preview">
@@ -220,7 +211,6 @@
         </div>
       </div>
     </div>
-    <!-- insert avatar edit modal -->
     <div class="modal" id="avatar-edit-modal">
       <div class="modal-background"></div>
       <div class="modal__container">
@@ -254,7 +244,6 @@
         </form>
       </div>
     </div>
-    <!-- delete card modal -->
     <div class="modal" id="modal__container-delete-card">
       <div class="modal-background"></div>
       <div class="modal__container-delete-card">
@@ -266,7 +255,6 @@
         <h3 class="modal__title-delete-card">
           Are you sure you want to delete this image?
         </h3>
-        <!-- <form class="modal__form" name="Delete Image"> -->
           <div class="modal__buttons">
           <button class="modal__delete-btn" aria-label="delete button" type="submit">
             Delete
