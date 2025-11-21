@@ -1,5 +1,6 @@
 .page {
-  background-color: #fcf5e5;
+  /* background-color: #fcf5e5; */
+  background-color: rgba(252, 245, 229, 1);
   min-height: 100vh;
 }
 

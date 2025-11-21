@@ -8,7 +8,6 @@
       content="social website for users to share photos"
     />
     <meta name="author" content="Simeon Pennisi" />
-    <!-- <link rel="stylesheet" href="pages/index.css" /> -->
     <link rel="shortcut icon" href="favicon.ico" />
     <title>Spots</title>
   </head>
@@ -22,13 +21,21 @@
         />
       </header>
       <main class="content">
-        <!-- use "Page Section" for all sections -->
         <section class="profile page__section">
-          <img
-            class="profile__avatar"
-            src="<%= require('./images/avatar.jpg')%>"
-            alt="user avatar"
-          />
+          <div class="profile__avatar-container">
+            <button class="avatar__edit-button">
+              <img
+                class="profile__pencil-icon"
+                src="<%= require('./images/edit-profile-pencil-white.svg')%>"
+                alt="pencil icon white"
+              />
+            </button>
+            <img
+              class="profile__avatar"
+              src="<%= require('./images/avatar.jpg')%>"
+              alt="user avatar"
+            />
+          </div>
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
@@ -58,10 +65,8 @@
           </button>
         </section>
       </main>
-      <!-- card section -->
       <section class="cards page__section">
         <ul class="cards__list">
-          <!-- card template -->
           <template id="card-template">
             <li class="card">
               <button
@@ -85,7 +90,6 @@
       <footer class="footer page__section">
         <p class="footer__copywrite">2025 &copy; Spots</p>
       </footer>
-      <!-- Edit Profile Modal -->
       <div class="modal" id="profile-edit-modal">
         <div class="modal-background"></div>
         <div class="modal__container">
@@ -96,7 +100,6 @@
           ></button>
           <h3 class="modal__title">Edit Profile</h3>
           <form class="modal__form" name="Edit Profile">
-            <!-- "for" attribute of label should match "id" attribute of input -->
             <label for="profile-name-input" class="modal__label"
               >Name
               <input
@@ -141,7 +144,6 @@
           </form>
         </div>
       </div>
-      <!-- New Post Modal -->
       <div class="modal" id="post-new-modal">
         <div class="modal-background"></div>
         <div class="modal__container">
@@ -152,7 +154,6 @@
           ></button>
           <h3 class="modal__title">New Post</h3>
           <form class="modal__form" name="New Post">
-            <!-- "for" attribute of label should match "id" attribute of input -->
             <label for="new-post-image-link-input" class="modal__label"
               >Image link
               <input
@@ -195,7 +196,6 @@
           </form>
         </div>
       </div>
-      <!-- Preview modal -->
       <div class="modal" id="preview-modal">
         <div class="modal-background"></div>
         <div class="modal__container-preview">
@@ -211,8 +211,60 @@
         </div>
       </div>
     </div>
-    <!-- <script src="./scripts/validation.js"></script>
-    <script src="./scripts/index.js"></script> -->
-    <!-- <script src="./scripts/index.js" type="module"></script> -->
+    <div class="modal" id="avatar-edit-modal">
+      <div class="modal-background"></div>
+      <div class="modal__container">
+        <button
+          type="button"
+          class="modal__close-btn"
+          aria-label="close button"
+        ></button>
+        <h3 class="modal__title">Edit avatar</h3>
+        <form class="modal__form" name="Edit avatar">
+          <label for="avatar-url-input" class="modal__label"
+            >Name
+            <input
+              id="avatar-url-input"
+              type="url"
+              class="modal__input"
+              name="Avatar"
+              aria-label="avatar name input"
+              placeholder="avatar url link"
+              required
+            />
+            <span id="avatar-url-input-error" class="modal__input-error"></span>
+          </label>
+          <button
+            class="modal__save-btn"
+            aria-label="save button"
+            type="submit"
+          >
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="modal" id="modal__container-delete-card">
+      <div class="modal-background"></div>
+      <div class="modal__container-delete-card">
+        <button
+          type="button"
+          class="modal__close-btn modal__close-btn_delete-card"
+          aria-label="close button"
+        ></button>
+        <h3 class="modal__title-delete-card">
+          Are you sure you want to delete this image?
+        </h3>
+          <div class="modal__buttons">
+          <button class="modal__delete-btn" aria-label="delete button" type="submit">
+            Delete
+          </button>
+          <button class="modal__cancel-btn" aria-label="cancel button" type="button">
+            Cancel
+          </button>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

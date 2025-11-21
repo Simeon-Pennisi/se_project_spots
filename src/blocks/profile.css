@@ -8,7 +8,7 @@
 .profile__name {
   color: #212121;
   margin: 0;
-  padding: 0;
+  padding: 12px 0 0 0;
   font-family: "Poppins", Arial, sans-serif;
   font-weight: 500;
   font-size: 32px;
@@ -21,19 +21,64 @@
   max-width: 420px;
 }
 
-.profile__avatar {
-  margin-right: 20px;
+.profile__avatar-container {
+  position: relative;
+  display: flex;
   padding: 0;
   border-radius: 8px;
   height: 190px;
   width: 190px;
 }
 
+.profile__avatar {
+  background-size: cover;
+  background-position: center;
+  display: block;
+  border-radius: 8px;
+  padding: 0;
+  margin: 0;
+  height: 190px;
+  width: 190px;
+}
+
+.avatar__edit-button {
+  position: absolute;
+  background: none;
+  border: none;
+  padding: 162px 39px 16px 39px;
+  margin: 0;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0;
+  border-radius: 8px;
+  height: 190px;
+  width: 190px;
+}
+
+.avatar__edit-button::after {
+  content: "Edit Avatar";
+  font-family: Poppins;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  color: #ffffff;
+}
+
+.avatar__edit-button:hover {
+  background-color: #000000;
+  opacity: 0.5;
+  cursor: pointer;
+  visibility: visible;
+  transition: opacity 0.3s ease-in-out;
+}
+
 .profile__column {
   display: flex;
   flex-direction: column;
   margin: 0;
-  padding: 0;
+  padding-left: 20px;
 }
 
 .profile__description {
@@ -115,7 +160,6 @@
 
   .profile__avatar {
     margin-right: 0;
-    padding-bottom: 12px;
     width: 80px;
     height: 80px;
   }
@@ -133,5 +177,17 @@
   .profile__add-button {
     margin: auto;
     width: 288px;
+  }
+
+  .avatar__edit-button {
+    padding: 0;
+    height: 80px;
+    width: 80px;
+  }
+
+  .profile__avatar-container {
+    margin: auto;
+    height: 80px;
+    width: 80px;
   }
 }

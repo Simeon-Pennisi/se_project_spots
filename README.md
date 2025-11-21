@@ -42,6 +42,10 @@ The arrangement of elements, inluding cards and the header, is controlled by med
 
 **Video**
 
-The following video gives a detailed overview of the website
+The following video is a detailed overview of the initial build of the website:
 
 [project video](https://drive.google.com/file/d/1lP8eToZaO3TPBKFydtVYel139KmshdFy/view?usp=sharing)
+
+The next video details the updates made to the site since the first video was recorded:
+
+[second project video](https://drive.google.com/file/d/14qa8IQ3qvzPZU7Dk4sdebi42IB3V41lo/view?usp=drive_link)
